@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boysun Bahori 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Noto+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #0F7B6C;      /* Chuqur Turkuaz – asosiy rang */
+      --green-dark: #0F7B6C; /* Turkuaz – header, sarlavhalar */
+      --green-light: #F59E0B;/* Festival Sariq – urg'ular */
+      --gold: #F59E0B;       /* Sariq – chegaralar, aksent */
+      --gold-light: #F1F5F4; /* Surface – blok fonlari */
+      --cream: #FFFDF6;      /* Yumshoq Oq – umumiy fon */
+      --cta: #E11D48;        /* Jonli Qizil – CTA tugmalar */
+      --text: #0F172A;
+      --text-muted: #555;
+      --white: #fff;
+      --shadow: 0 4px 24px rgba(0,0,0,0.13);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans', sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem;
+      height: 64px;
+      background: linear-gradient(135deg,
+        rgba(15,27,42,0.82) 0%,
+        rgba(15,123,108,0.72) 50%,
+        rgba(15,27,42,0.82) 100%);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+      transition: background 0.3s;
+    }
+    .logo {
+      display: flex; align-items: center;
+      text-decoration: none;
+      white-space: nowrap;
+      height: 48px;
+    }
+    .logo img {
+      height: 46px;
+      width: auto;
+      display: block;
+      filter: drop-shadow(0 1px 4px rgba(0,0,0,0.35));
+    }
+    nav { display: flex; gap: 0.25rem; align-items: center; }
+    nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.85rem; font-weight: 600;
+      padding: 0.4rem 0.75rem;
+      border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+      letter-spacing: 0.5px;
+    }
+    nav a:hover { color: var(--gold-light); background: rgba(255,255,255,0.08); }
+
+    /* Language selector */
+    .lang-wrap { position: relative; }
+    .lang-btn {
+      background: rgba(245,158,11,0.2);
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      font-size: 0.8rem; font-weight: 600;
+      padding: 0.4rem 0.9rem;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex; align-items: center; gap: 0.4rem;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .lang-btn:hover, .lang-btn:focus { background: rgba(245,158,11,0.38); outline: none; }
+    .lang-btn::after { content: '▾'; font-size: 0.7rem; }
+    .lang-dropdown {
+      display: none;
+      position: absolute; right: 0; top: calc(100% + 6px);
+      background: var(--green-dark);
+      border: 1px solid rgba(245,158,11,0.35);
+      border-radius: 6px;
+      min-width: 200px;
+      max-height: 420px;
+      overflow-y: auto;
+      z-index: 9999;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .lang-wrap:focus-within .lang-dropdown { display: block; }
+    .lang-dropdown a {
+      display: block;
+      padding: 0.55rem 1rem;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .lang-dropdown a:hover, .lang-dropdown a.active {
+      background: rgba(245,158,11,0.25);
+      color: var(--gold-light);
+    }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      height: 100vh; min-height: 600px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .slides {
+      position: absolute; inset: 0;
+      z-index: 0;
+    }
+    .slide {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0;
+      transition: opacity 1.5s ease;
+    }
+    .slide.active { opacity: 1; }
+    .slide::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg,
+        rgba(15,123,108,0.40) 0%,
+        rgba(245,158,11,0.28) 50%,
+        rgba(225,29,72,0.40) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 1;
+      padding: 1rem 1.5rem;
+      max-width: 900px;
+    }
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      padding: 0.35rem 1.2rem;
+      border-radius: 2px;
+      margin-bottom: 1rem;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+      margin-bottom: 0.5rem;
+    }
+    .hero-title span { color: var(--gold-light); }
+    .hero-subtitle {
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      color: rgba(255,255,255,0.8);
+      font-weight: 300;
+      letter-spacing: 1px;
+      margin-bottom: 0.4rem;
+    }
+    .hero-date {
+      font-size: 1rem; color: var(--gold-light);
+      font-weight: 600; letter-spacing: 2px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Countdown */
+    .countdown-wrap { margin-top: 0.5rem; }
+    .countdown-title {
+      font-size: 0.8rem; color: rgba(255,255,255,0.6);
+      letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .countdown {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+    .cd-box {
+      background: rgba(0,0,0,0.45);
+      border: 1px solid rgba(245,158,11,0.8);
+      backdrop-filter: blur(8px);
+      border-radius: 8px;
+      padding: 0.9rem 1.4rem;
+      min-width: 90px;
+    }
+    .cd-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem; font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1;
+      display: block;
+    }
+    .cd-label {
+      font-size: 0.65rem; color: rgba(255,255,255,0.6);
+      text-transform: uppercase; letter-spacing: 1.5px;
+      display: block; margin-top: 0.3rem;
+    }
+    .started-msg {
+      display: none;
+      font-size: 1.6rem; color: var(--gold-light);
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+
+    /* scroll indicator */
+    .scroll-down {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      z-index: 2; animation: bounce 2s infinite;
+      color: rgba(255,255,255,0.5); font-size: 1.5rem; cursor: pointer;
+      text-decoration: none;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ── SECTION COMMON ── */
+    section { padding: 5rem 1.5rem; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700; color: var(--green-dark);
+      text-align: center; margin-bottom: 0.5rem;
+    }
+    .section-divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, var(--green), var(--green-light));
+      margin: 0.75rem auto 3rem;
+      border-radius: 2px;
+    }
+
+    /* ── ORNAMENT PATTERN ── */
+    .pattern-bg {
+      background-color: var(--green-dark);
+      background-image:
+        radial-gradient(circle at 25% 25%, rgba(245,158,11,0.12) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(245,158,11,0.12) 0%, transparent 50%);
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-text p {
+      font-size: 1.05rem; line-height: 1.85;
+      color: var(--text-muted); margin-bottom: 1.25rem;
+    }
+    .about-img-wrap {
+      position: relative;
+      border-radius: 8px; overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .about-img-wrap img {
+      width: 100%; height: 420px;
+      object-fit: cover; display: block;
+    }
+    .about-img-wrap::after {
+      content: '';
+      position: absolute; inset: 0;
+      border: 3px solid var(--gold);
+      border-radius: 8px;
+      pointer-events: none;
+      opacity: 0.4;
+    }
+    .about-badges {
+      display: flex; flex-wrap: wrap; gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    .badge {
+      background: var(--cta);
+      color: var(--white);
+      font-size: 0.75rem; font-weight: 600;
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── EVENTS ── */
+    #events { background: var(--cream); }
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .event-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      min-height: 300px;
+      display: flex;
+      align-items: flex-end;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .event-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.22); }
+    .event-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      transition: transform 0.5s ease;
+    }
+    .event-card:hover .event-bg { transform: scale(1.08); }
+    .event-card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(0deg, rgba(15,123,108,0.88) 0%, rgba(15,123,108,0.35) 55%, transparent 100%);
+    }
+    .event-content {
+      position: relative; z-index: 1;
+      padding: 1.5rem;
+      color: white;
+      width: 100%;
+    }
+    .event-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700;
+      color: #fff; margin-bottom: 0.5rem;
+    }
+    .event-content p {
+      font-size: 0.85rem; color: rgba(255,255,255,0.82);
+      line-height: 1.65;
+    }
+    .event-tag {
+      display: inline-block;
+      background: var(--cta);
+      color: white;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      margin-bottom: 0.6rem;
+    }
+
+    /* ── GALLERY ── */
+    #gallery { background: var(--white); }
+    .gallery-marquee-wrap {
+      overflow: hidden;
+      border-radius: 12px;
+    }
+    .gallery-row {
+      display: flex;
+      gap: 8px;
+      width: max-content;
+      margin-bottom: 8px;
+    }
+    .gallery-row:last-child { margin-bottom: 0; }
+    .gallery-row-1 { animation: gscroll-left 500s linear infinite; }
+    .gallery-row-2 { animation: gscroll-right 460s linear infinite; }
+    .gallery-row:hover { animation-play-state: paused; }
+    @keyframes gscroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes gscroll-right {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+    .gm-item {
+      flex: 0 0 auto;
+      width: 270px; height: 200px;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+    }
+    .gm-item img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform 0.35s ease;
+    }
+    .gm-item:hover img { transform: scale(1.08); }
+    .gm-item::after {
+      content: '🔍';
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+      background: rgba(15,123,108,0.35);
+      opacity: 0; transition: opacity 0.25s;
+    }
+    .gm-item:hover::after { opacity: 1; }
+
+    /* Lightbox */
+    #lightbox {
+      display: none;
+      position: fixed; inset: 0; z-index: 9000;
+      background: rgba(0,0,0,0.92);
+      align-items: center; justify-content: center;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 92vw; max-height: 88vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 0 60px rgba(0,0,0,0.8);
+    }
+    .lb-close, .lb-prev, .lb-next {
+      position: absolute;
+      background: rgba(255,255,255,0.1);
+      border: none; color: white;
+      font-size: 1.8rem;
+      cursor: pointer; border-radius: 50%;
+      width: 48px; height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .lb-close:hover, .lb-prev:hover, .lb-next:hover { background: rgba(255,255,255,0.25); }
+    .lb-close { top: 1.5rem; right: 1.5rem; font-size: 1.4rem; }
+    .lb-prev { left: 1.5rem; top: 50%; transform: translateY(-50%); }
+    .lb-next { right: 1.5rem; top: 50%; transform: translateY(-50%); }
+
+    /* ── SCHEDULE ── */
+    #schedule {
+      background: linear-gradient(160deg,
+        rgba(15,27,42,0.97) 0%,
+        rgba(15,123,108,0.78) 50%,
+        rgba(15,27,42,0.97) 100%);
+    }
+    #schedule .section-title { color: var(--white); }
+    .schedule-days { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.75rem; }
+    .sday {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(245,158,11,0.35);
+      backdrop-filter: blur(8px);
+      background: rgba(255,255,255,0.04);
+    }
+    .sday-header {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 0.9rem 1.25rem;
+      background: linear-gradient(90deg, rgba(15,123,108,0.25) 0%, rgba(255,255,255,0.05) 100%);
+      cursor: pointer;
+      transition: background 0.2s;
+      user-select: none;
+    }
+    .sday-header:hover {
+      background: linear-gradient(90deg, rgba(245,158,11,0.25) 0%, rgba(255,255,255,0.08) 100%);
+    }
+    .sday-header.open {
+      background: linear-gradient(90deg, rgba(245,158,11,0.35) 0%, rgba(255,255,255,0.08) 100%);
+    }
+    .sday-num {
+      background: linear-gradient(135deg, var(--cta), #b01535);
+      color: white;
+      font-size: 0.75rem; font-weight: 700;
+      border-radius: 6px;
+      padding: 0.2rem 0.6rem;
+      white-space: nowrap;
+      box-shadow: 0 2px 6px rgba(225,29,72,0.4);
+    }
+    .sday-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-weight: 700;
+      color: var(--gold-light);
+      flex: 1;
+    }
+    .sday-arrow { color: var(--gold-light); font-size: 0.8rem; transition: transform 0.25s; }
+    .sday-header.open .sday-arrow { transform: rotate(180deg); }
+    .sday-body {
+      display: none;
+      padding: 0.5rem 1.25rem 1rem;
+      background: rgba(0,0,0,0.22);
+      border-top: 1px solid rgba(245,158,11,0.15);
+    }
+    .sday-body.open { display: block; }
+    .sday-item {
+      display: flex; gap: 1rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      align-items: flex-start;
+    }
+    .sday-item:last-child { border-bottom: none; }
+    .sday-time {
+      min-width: 48px;
+      font-size: 0.82rem; font-weight: 700;
+      color: var(--gold-light);
+      padding-top: 0.1rem;
+      white-space: nowrap;
+    }
+    .sday-event {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.5;
+    }
+    .sday-dot {
+      width: 8px; height: 8px; min-width: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 0.42rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: linear-gradient(135deg,
+        rgba(15,27,42,0.95) 0%,
+        rgba(15,123,108,0.80) 50%,
+        rgba(15,27,42,0.95) 100%);
+      backdrop-filter: blur(10px);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+    .footer-logo {
+      display: flex; justify-content: center;
+      margin-bottom: 0.75rem;
+    }
+    .footer-loc {
+      font-size: 0.82rem; color: rgba(255,255,255,0.45);
+      margin-bottom: 0.4rem;
+    }
+    .footer-copy {
+      font-size: 0.78rem; color: rgba(255,255,255,0.3);
+    }
+    .footer-flags {
+      margin: 1rem 0;
+      font-size: 1.6rem;
+      letter-spacing: 0.3rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      header { padding: 0 1rem; }
+      nav { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-img-wrap { order: -1; }
+      .about-img-wrap img { height: 260px; }
+      .timeline::before { left: 72px; }
+      .cd-box { min-width: 72px; padding: 0.7rem 0.9rem; }
+      .cd-num { font-size: 2rem; }
+      section { padding: 3.5rem 1rem; }
+    }
+
+    /* RTL support */
+    [dir="rtl"] .logo { letter-spacing: 0; }
+    [dir="rtl"] .timeline::before { left: auto; right: 90px; }
+    [dir="rtl"] .tl-item { flex-direction: row-reverse; }
+    [dir="rtl"] .tl-time { text-align: left; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo"><img src="logo.png" alt="Boysun Bahori"></a>
+  <nav>
+    <a href="#about" data-i18n="nav_about"></a>
+    <a href="#events" data-i18n="nav_events"></a>
+    <a href="#gallery" data-i18n="nav_gallery"></a>
+    <a href="#schedule" data-i18n="nav_schedule"></a>
+  </nav>
+  <div class="lang-wrap">
+    <button class="lang-btn" id="langBtn" tabindex="0">🌐 <span id="langName">English</span></button>
+    <div class="lang-dropdown" id="langDropdown">
+      <a href="javascript:void(0)" data-lang="uz"    onclick="applyLang('uz');    document.getElementById('langBtn').focus();">O'zbekcha (lotin)</a>
+      <a href="javascript:void(0)" data-lang="uz-cy" onclick="applyLang('uz-cy'); document.getElementById('langBtn').focus();">Ўзбекча (кирилл)</a>
+      <a href="javascript:void(0)" data-lang="en"    onclick="applyLang('en');    document.getElementById('langBtn').focus();" class="active">English</a>
+      <a href="javascript:void(0)" data-lang="ru"    onclick="applyLang('ru');    document.getElementById('langBtn').focus();">Русский</a>
+      <a href="javascript:void(0)" data-lang="es"    onclick="applyLang('es');    document.getElementById('langBtn').focus();">Español</a>
+      <a href="javascript:void(0)" data-lang="fr"    onclick="applyLang('fr');    document.getElementById('langBtn').focus();">Français</a>
+      <a href="javascript:void(0)" data-lang="de"    onclick="applyLang('de');    document.getElementById('langBtn').focus();">Deutsch</a>
+      <a href="javascript:void(0)" data-lang="it"    onclick="applyLang('it');    document.getElementById('langBtn').focus();">Italiano</a>
+      <a href="javascript:void(0)" data-lang="ko"    onclick="applyLang('ko');    document.getElementById('langBtn').focus();">한국어</a>
+      <a href="javascript:void(0)" data-lang="kk"    onclick="applyLang('kk');    document.getElementById('langBtn').focus();">Қазақша</a>
+      <a href="javascript:void(0)" data-lang="ky"    onclick="applyLang('ky');    document.getElementById('langBtn').focus();">Кыргызча</a>
+      <a href="javascript:void(0)" data-lang="tk"    onclick="applyLang('tk');    document.getElementById('langBtn').focus();">Türkmençe</a>
+      <a href="javascript:void(0)" data-lang="tg"    onclick="applyLang('tg');    document.getElementById('langBtn').focus();">Тоҷикӣ</a>
+      <a href="javascript:void(0)" data-lang="fa"    onclick="applyLang('fa');    document.getElementById('langBtn').focus();">دری</a>
+      <a href="javascript:void(0)" data-lang="zh"    onclick="applyLang('zh');    document.getElementById('langBtn').focus();">中文</a>
+      <a href="javascript:void(0)" data-lang="ja"    onclick="applyLang('ja');    document.getElementById('langBtn').focus();">日本語</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="slides">
+    <div class="slide active" style="background-image:url('Photos/photo_1_2026-04-13_13-51-08.jpg')"></div>
+    <div class="slide" style="background-image:url('Photos/photo_1_2026-04-13_13-48-38.jpg')"></div>
+    <div class="slide" style="background-image:url('Photos/photo_50_2026-04-13_13-51-08.jpg')"></div>
+    <div class="slide" style="background-image:url('Photos/photo_60_2026-04-13_13-51-08.jpg')"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">UNESCO · 2001</div>
+    <h1 class="hero-title"><span data-i18n="hero_title">BOYSUN BAHORI</span></h1>
+    <p class="hero-subtitle" data-i18n="hero_subtitle">Uzbekistan's Intangible Cultural Heritage</p>
+    <p class="hero-date" data-i18n="hero_date">May 1, 2026</p>
+    <div class="countdown-wrap">
+      <p class="countdown-title" data-i18n="countdown_title">Time until the Festival:</p>
+      <div class="countdown" id="countdown">
+        <div class="cd-box">
+          <span class="cd-num" id="cd-days">--</span>
+          <span class="cd-label" data-i18n="days">Days</span>
+        </div>
+        <div class="cd-box">
+          <span class="cd-num" id="cd-hours">--</span>
+          <span class="cd-label" data-i18n="hours">Hours</span>
+        </div>
+        <div class="cd-box">
+          <span class="cd-num" id="cd-mins">--</span>
+          <span class="cd-label" data-i18n="minutes">Minutes</span>
+        </div>
+        <div class="cd-box">
+          <span class="cd-num" id="cd-secs">--</span>
+          <span class="cd-label" data-i18n="seconds">Seconds</span>
+        </div>
+      </div>
+      <p class="started-msg" id="started-msg" data-i18n="started">The Festival has begun!</p>
+    </div>
+  </div>
+  <a class="scroll-down" href="#about">▼</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <h2 class="section-title" data-i18n="about_title">About Boysun Bahori</h2>
+    <div class="section-divider"></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p data-i18n="about_text">Boysun Bahori (Spring of Boysun) is an international ethno-cultural festival held annually in spring in the Boysun district of Surkhandarya region, Uzbekistan. Recognized by UNESCO as part of the 'Intangible Cultural Heritage of Humanity,' this vibrant festival showcases traditional sports such as kurash and ko'pkari, folk music, dance, and handicraft exhibitions, celebrating the rich nomadic and settled cultures of Central Asia.</p>
+        <div class="about-badges">
+          <span class="badge">UNESCO Heritage</span>
+          <span class="badge">Boysun, Uzbekistan</span>
+          <span class="badge">1 May 2026</span>
+          <span class="badge">Surkhandarya</span>
+        </div>
+      </div>
+      <div class="about-img-wrap">
+        <img src="Photos/photo_1_2026-04-13_13-51-47.jpg" alt="Boysun Bahori">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="section-inner">
+    <h2 class="section-title" data-i18n="events_title">Events</h2>
+    <div class="section-divider"></div>
+    <div class="events-grid">
+      <div class="event-card">
+        <div class="event-bg" style="background-image:url('Events/Ko%27pkari.jpg')"></div>
+        <div class="event-content">
+          <span class="event-tag" data-i18n="kopkari_name">Ko'pkari</span>
+          <h3 data-i18n="kopkari_name">Ko'pkari</h3>
+          <p data-i18n="kopkari_desc">An'anaviy otliq o'yin — chavandozlar ulkan maydonda taka uchun kurashadi.</p>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-bg" style="background-image:url('Events/Kurash.jpg')"></div>
+        <div class="event-content">
+          <span class="event-tag" data-i18n="kurash_name">Kurash</span>
+          <h3 data-i18n="kurash_name">Kurash</h3>
+          <p data-i18n="kurash_desc">O'zbekistonning milliy kurash turi. Pahlavonlar kuchini o'lchab, g'alaba qozonadi.</p>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-bg" style="background-image:url('Events/Folklor.jpg')"></div>
+        <div class="event-content">
+          <span class="event-tag" data-i18n="folklor_name">Folklor tanlovlari</span>
+          <h3 data-i18n="folklor_name">Folklor tanlovlari</h3>
+          <p data-i18n="folklor_desc">Mintaqalardan kelgan folklor jamoalarining an'anaviy qo'shiq, raqs va musiqa tanlovlari.</p>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-bg" style="background-image:url('Events/havo%20shari.jpg')"></div>
+        <div class="event-content">
+          <span class="event-tag" data-i18n="balloon_name">Havo sharlari festivali</span>
+          <h3 data-i18n="balloon_name">Havo sharlari festivali</h3>
+          <p data-i18n="balloon_desc">Rang-barang havo sharlari osmon bo'ylab suzadi. Festival bayramining eng yorqin ko'rinishi.</p>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-bg" style="background-image:url('Events/Hunarmandchilik.jpg')"></div>
+        <div class="event-content">
+          <span class="event-tag" data-i18n="crafts_name">Hunarmandchilik</span>
+          <h3 data-i18n="crafts_name">Hunarmandchilik</h3>
+          <p data-i18n="crafts_desc">Kashtachilik, kulolchilik, zargarlik va boshqa an'anaviy hunarmandchilik ko'rgazmalari.</p>
+        </div>
+      </div>
+      <div class="event-card">
+        <div class="event-bg" style="background-image:url('Events/Dron.jpg')"></div>
+        <div class="event-content">
+          <span class="event-tag" data-i18n="dron_name">Dron, Lazer shou va Mushakbozlik</span>
+          <h3 data-i18n="dron_name">Dron, Lazer shou va Mushakbozlik</h3>
+          <p data-i18n="dron_desc">Zamonaviy texnologiya va milliy san'atning uyg'unligi — kechki samoda dron rasmlari, lazer nuri va mushakbozlik.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-inner">
+    <h2 class="section-title" data-i18n="gallery_title">Photo Gallery</h2>
+    <div class="section-divider"></div>
+    <div class="gallery-marquee-wrap" id="galleryWrap">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule">
+  <div class="section-inner">
+    <h2 class="section-title" data-i18n="schedule_title">Festival Schedule</h2>
+    <div class="section-divider"></div>
+    <div class="schedule-days" id="scheduleDays">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><img src="logo.png" alt="Boysun Bahori 2026" style="height:64px;width:auto;filter:brightness(1.15) drop-shadow(0 2px 6px rgba(0,0,0,0.4));"></div>
+  <div class="footer-flags">🇺🇿</div>
+  <p class="footer-loc" data-i18n="footer_location">Location: Uzbekistan, Surkhandarya Region, Boysun District</p>
+  <p class="footer-copy" data-i18n="footer_copy">© 2026 Boysun Bahori. All rights reserved.</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button class="lb-close" id="lbClose">✕</button>
+  <button class="lb-prev" id="lbPrev">‹</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-next" id="lbNext">›</button>
+</div>
+
+<script>
+// ── TRANSLATIONS ──
+const T = {
+  uz: {
+    lang_name:"O'zbekcha (lotin)",dir:"ltr",
+    nav_about:"Festival haqida",nav_events:"Tadbirlar",nav_gallery:"Galereya",nav_schedule:"Dastur",
+    hero_title:"BOYSUN BAHORI",hero_subtitle:"O'zbekistonning nomoddiy madaniy merosi",hero_date:"1-may, 2026",
+    countdown_title:"Festivalgacha qolgan vaqt:",days:"Kun",hours:"Soat",minutes:"Daqiqa",seconds:"Soniya",
+    started:"Festival boshlandi!",
+    about_title:"Boysun Bahori haqida",
+    about_text:"Boysun Bahori — O'zbekistonning Surxondaryo viloyatidagi Boysun tumanida har yili bahor faslida o'tkaziladigan xalqaro etnomadaniy festival. Bu festival UNESCO tomonidan \"Insoniyatning og'zaki va nomoddiy merosi\" ro'yxatiga kiritilgan. Festival davomida kurash, ko'pkari kabi an'anaviy sport o'yinlari, milliy musiqa, raqs va hunarmandchilik ko'rgazmalari namoyish etiladi.",
+    events_title:"Tadbirlar",
+    kopkari_name:"Ko'pkari",kopkari_desc:"An'anaviy otliq o'yin — chavandozlar ulkan maydonda taka uchun kurashadi. Bu qadimiy o'yin jasurlik va mahoratni namoyish etadi.",
+    kurash_name:"Kurash",kurash_desc:"O'zbekistonning milliy kurash turi. Pahlavonlar kuchini o'lchab, g'alaba qozonish uchun bir-biri bilan kurashadi.",
+    folklor_name:"Folklor tanlovlari",folklor_desc:"Mintaqalardan kelgan folklor jamoalarining an'anaviy qo'shiq, raqs va musiqa tanlovlari. Eng yaxshi jamoalar mukofotlanadi.",
+    balloon_name:"Havo sharlari festivali",balloon_desc:"Rang-barang havo sharlari osmon bo'ylab suzadi. Festival bayramining eng yorqin va romantik ko'rinishi.",
+    crafts_name:"Hunarmandchilik",crafts_desc:"Kashtachilik, kulolchilik, zargarlik va boshqa an'anaviy hunarmandchilik ko'rgazmalari. Ustalar mahsulotlarini namoyish etishadi.",
+    dron_name:"Dron, Lazer shou va Mushakbozlik",dron_desc:"Zamonaviy texnologiya va milliy san'atning uyg'unligi — kechki samoda dron rasmlari, lazer nuri va mushakbozlik.",
+    gallery_title:"Fotogalereya",schedule_title:"Festival Dasturi",schedule_may1:"1-may",
+    sch1_time:"06:00",sch1_event:"Tantanali ochilish marosimi",
+    sch2_time:"08:00",sch2_event:"Ko'pkari musobaqasi",
+    sch3_time:"10:00",sch3_event:"Kurash musobaqasi",
+    sch4_time:"13:00",sch4_event:"Milliy musiqa va raqs",
+    sch5_time:"15:00",sch5_event:"Hunarmandchilik ko'rgazmasi",
+    sch6_time:"17:00",sch6_event:"Xalqaro madaniy dastur",
+    sch7_time:"19:00",sch7_event:"Yopilish marosimi va konsert",
+    footer_copy:"© 2026 Boysun Bahori. Barcha huquqlar himoyalangan.",
+    footer_location:"Manzil: O'zbekiston, Surxondaryo viloyati, Boysun tumani"
+  },
+  'uz-cy': {
+    lang_name:"Ўзбекча (кирилл)",dir:"ltr",
+    nav_about:"Фестивал ҳақида",nav_events:"Тадбирлар",nav_gallery:"Галерея",nav_schedule:"Дастур",
+    hero_title:"БОЙСУН БАҲОРИ",hero_subtitle:"Ўзбекистоннинг номоддий маданий мероси",hero_date:"1-май, 2026",
+    countdown_title:"Фестивалгача қолган вақт:",days:"Кун",hours:"Соат",minutes:"Дақиқа",seconds:"Сония",
+    started:"Фестивал бошланди!",
+    about_title:"Бойсун Баҳори ҳақида",
+    about_text:"Бойсун Баҳори — Ўзбекистоннинг Сурхондарё вилоятидаги Бойсун туманида ҳар йили баҳор фаслида ўтказиладиган халқаро этномаданий фестивал. Бу фестивал ЮНЕСКО томонидан \"Инсониятнинг оғзаки ва номоддий мероси\" рўйхатига киритилган. Фестивал давомида кураш, кўпкари каби анъанавий спорт ўйинлари, миллий мусиқа, рақс ва ҳунармандчилик кўрғазмалари намойиш этилади.",
+    events_title:"Тадбирлар",
+    kopkari_name:"Кўпкари",kopkari_desc:"Анъанавий отлиқ ўйин — чавандозлар улкан майдонда така учун курашади.",
+    kurash_name:"Кураш",kurash_desc:"Ўзбекистоннинг миллий кураш тури. Паҳлавонлар кучини ўлчаб, ғалаба қозонади.",
+    folklor_name:"Фолклор танловлари",folklor_desc:"Минтақалардан келган фолклор жамоаларининг анъанавий қўшиқ, рақс ва мусиқа танловлари. Энг яхши жамоалар мукофотланади.",
+    balloon_name:"Ҳаво шарлари фестивали",balloon_desc:"Ранг-баранг ҳаво шарлари осмон бўйлаб сузади. Фестивалнинг энг ёрқин ва романтик кўриниши.",
+    crafts_name:"Ҳунармандчилик",crafts_desc:"Кашта, кулолчилик, заргарлик ва бошқа анъанавий ҳунармандчилик кўрғазмалари.",
+    dron_name:"Дрон, Лазер шоу ва Мушакбозлик",dron_desc:"Замонавий технология ва миллий санъатнинг уйғунлиги — кечки самода дрон расмлари, лазер нури ва мушакбозлик.",
+    gallery_title:"Фотогалерея",schedule_title:"Фестивал Дастури",schedule_may1:"1-май",
+    sch1_time:"06:00",sch1_event:"Тантанали очилиш маросими",
+    sch2_time:"08:00",sch2_event:"Кўпкари мусобақаси",
+    sch3_time:"10:00",sch3_event:"Кураш мусобақаси",
+    sch4_time:"13:00",sch4_event:"Миллий мусиқа ва рақс",
+    sch5_time:"15:00",sch5_event:"Ҳунармандчилик кўрғазмаси",
+    sch6_time:"17:00",sch6_event:"Халқаро маданий дастур",
+    sch7_time:"19:00",sch7_event:"Ёпилиш маросими ва концерт",
+    footer_copy:"© 2026 Бойсун Баҳори. Барча ҳуқуқлар ҳимояланган.",
+    footer_location:"Манзил: Ўзбекистон, Сурхондарё вилояти, Бойсун тумани"
+  },
+  en: {
+    lang_name:"English",dir:"ltr",
+    nav_about:"About",nav_events:"Events",nav_gallery:"Gallery",nav_schedule:"Schedule",
+    hero_title:"BOYSUN BAHORI",hero_subtitle:"Uzbekistan's Intangible Cultural Heritage",hero_date:"May 1, 2026",
+    countdown_title:"Time until the Festival:",days:"Days",hours:"Hours",minutes:"Minutes",seconds:"Seconds",
+    started:"The Festival has begun!",
+    about_title:"About Boysun Bahori",
+    about_text:"Boysun Bahori (Spring of Boysun) is an international ethno-cultural festival held annually in spring in the Boysun district of Surkhandarya region, Uzbekistan. Recognized by UNESCO as part of the 'Intangible Cultural Heritage of Humanity,' this vibrant festival showcases traditional sports such as kurash and ko'pkari, folk music, dance, and handicraft exhibitions, celebrating the rich nomadic and settled cultures of Central Asia.",
+    events_title:"Events",
+    kopkari_name:"Ko'pkari",kopkari_desc:"Traditional equestrian game where skilled horsemen compete to carry a goat carcass to the goal. A thrilling display of bravery and horsemanship.",
+    kurash_name:"Kurash",kurash_desc:"Uzbekistan's national wrestling style, one of the oldest martial arts. Athletes display strength and technique in gripping competitions.",
+    folklor_name:"Folklore Competitions",folklor_desc:"Traditional song, dance and music competitions by folklore ensembles from various regions. The best performers are awarded.",
+    balloon_name:"Hot Air Balloon Festival",balloon_desc:"Colorful hot air balloons soar across the sky. The most vivid and romantic highlight of the festival celebrations.",
+    crafts_name:"Handicrafts",crafts_desc:"Exhibitions of embroidery, pottery, jewelry, and other traditional crafts. Masters showcase their finest works.",
+    dron_name:"Drone, Laser Show & Fireworks",dron_desc:"A fusion of modern technology and national art — drone formations, laser beams and fireworks illuminate the night sky.",
+    gallery_title:"Photo Gallery",schedule_title:"Festival Schedule",schedule_may1:"May 1",
+    sch1_time:"06:00",sch1_event:"Grand Opening Ceremony",
+    sch2_time:"08:00",sch2_event:"Ko'pkari Competition",
+    sch3_time:"10:00",sch3_event:"Kurash Competition",
+    sch4_time:"13:00",sch4_event:"Folk Music & Dance",
+    sch5_time:"15:00",sch5_event:"Handicraft Exhibition",
+    sch6_time:"17:00",sch6_event:"International Cultural Program",
+    sch7_time:"19:00",sch7_event:"Closing Ceremony & Concert",
+    footer_copy:"© 2026 Boysun Bahori. All rights reserved.",
+    footer_location:"Location: Uzbekistan, Surkhandarya Region, Boysun District"
+  },
+  ru: {
+    lang_name:"Русский",dir:"ltr",
+    nav_about:"О фестивале",nav_events:"Мероприятия",nav_gallery:"Галерея",nav_schedule:"Программа",
+    hero_title:"БОЙСУН БАХОРИ",hero_subtitle:"Нематериальное культурное наследие Узбекистана",hero_date:"1 мая 2026",
+    countdown_title:"До начала фестиваля:",days:"Дней",hours:"Часов",minutes:"Минут",seconds:"Секунд",
+    started:"Фестиваль начался!",
+    about_title:"О фестивале Бойсун Бахори",
+    about_text:"Бойсун Бахори (Весна Бойсуна) — международный этнокультурный фестиваль, ежегодно проводимый весной в Байсунском районе Сурхандарьинской области Узбекистана. Включён в список ЮНЕСКО «Нематериальное культурное наследие человечества». На фестивале демонстрируются традиционные виды спорта — кураш и купкари, народная музыка, танцы и выставки декоративно-прикладного искусства.",
+    events_title:"Мероприятия",
+    kopkari_name:"Купкари",kopkari_desc:"Традиционная конная игра, в которой наездники соревнуются за тушу козла. Зрелищное шоу мастерства и отваги.",
+    kurash_name:"Кураш",kurash_desc:"Национальная борьба Узбекистана — одно из древнейших боевых искусств. Спортсмены демонстрируют силу и технику.",
+    folklor_name:"Фольклорные конкурсы",folklor_desc:"Соревнования фольклорных ансамблей из разных регионов в пении, танцах и музыке. Лучшие коллективы награждаются.",
+    balloon_name:"Фестиваль воздушных шаров",balloon_desc:"Разноцветные воздушные шары парят над небом. Самый яркий и романтический момент фестиваля.",
+    crafts_name:"Народные Ремёсла",crafts_desc:"Выставки вышивки, керамики, ювелирных изделий и других традиционных ремёсел.",
+    dron_name:"Дрон, Лазер-шоу и Фейерверк",dron_desc:"Слияние современных технологий и национального искусства — фигуры дронов, лазерные лучи и фейерверк озаряют ночное небо.",
+    gallery_title:"Фотогалерея",schedule_title:"Программа Фестиваля",schedule_may1:"1 мая",
+    sch1_time:"06:00",sch1_event:"Торжественное открытие",
+    sch2_time:"08:00",sch2_event:"Купкари — конные состязания",
+    sch3_time:"10:00",sch3_event:"Соревнования по курашу",
+    sch4_time:"13:00",sch4_event:"Народная музыка и танцы",
+    sch5_time:"15:00",sch5_event:"Выставка народных ремёсел",
+    sch6_time:"17:00",sch6_event:"Международная культурная программа",
+    sch7_time:"19:00",sch7_event:"Церемония закрытия и концерт",
+    footer_copy:"© 2026 Бойсун Бахори. Все права защищены.",
+    footer_location:"Адрес: Узбекистан, Сурхандарьинская область, Байсунский район"
+  },
+  es: {
+    lang_name:"Español",dir:"ltr",
+    nav_about:"Acerca de",nav_events:"Eventos",nav_gallery:"Galería",nav_schedule:"Programa",
+    hero_title:"BOYSUN BAHORI",hero_subtitle:"Patrimonio Cultural Inmaterial de Uzbekistán",hero_date:"1 de mayo de 2026",
+    countdown_title:"Tiempo hasta el Festival:",days:"Días",hours:"Horas",minutes:"Minutos",seconds:"Segundos",
+    started:"¡El Festival ha comenzado!",
+    about_title:"Sobre el Festival Boysun Bahori",
+    about_text:"Boysun Bahori (Primavera de Boysun) es un festival etnocultural internacional que se celebra anualmente en primavera en el distrito de Boysun, región de Surkhandarya, Uzbekistán. Reconocido por la UNESCO como 'Patrimonio Cultural Inmaterial de la Humanidad', este festival celebra deportes tradicionales como el kurash y ko'pkari, música y danza folklórica, y exposiciones de artesanía.",
+    events_title:"Eventos",
+    kopkari_name:"Ko'pkari",kopkari_desc:"Juego ecuestre tradicional donde los jinetes compiten por llevar una cabra al objetivo. Un impresionante despliegue de valentía y equitación.",
+    kurash_name:"Kurash",kurash_desc:"Estilo de lucha nacional de Uzbekistán, uno de los artes marciales más antiguos.",
+    folklor_name:"Concursos de Folclore",folklor_desc:"Competiciones de canto, baile y música de grupos folclóricos de diversas regiones. Los mejores grupos son premiados.",
+    balloon_name:"Festival de Globos Aerostáticos",balloon_desc:"Coloridos globos aerostáticos surcan el cielo. El momento más vívido y romántico del festival.",
+    crafts_name:"Artesanía",crafts_desc:"Exposiciones de bordados, cerámica, joyería y otros oficios tradicionales.",
+    dron_name:"Drones, Espectáculo Láser y Fuegos Artificiales",dron_desc:"Fusión de tecnología moderna y arte nacional — formaciones de drones, rayos láser y fuegos artificiales iluminan el cielo nocturno.",
+    gallery_title:"Galería de Fotos",schedule_title:"Programa del Festival",schedule_may1:"1 de mayo",
+    sch1_time:"06:00",sch1_event:"Gran Ceremonia de Apertura",
+    sch2_time:"08:00",sch2_event:"Competición de Ko'pkari",
+    sch3_time:"10:00",sch3_event:"Competición de Kurash",
+    sch4_time:"13:00",sch4_event:"Música y Danza Folklórica",
+    sch5_time:"15:00",sch5_event:"Exposición de Artesanía",
+    sch6_time:"17:00",sch6_event:"Programa Cultural Internacional",
+    sch7_time:"19:00",sch7_event:"Ceremonia de Clausura y Concierto",
+    footer_copy:"© 2026 Boysun Bahori. Todos los derechos reservados.",
+    footer_location:"Ubicación: Uzbekistán, Región de Surkhandarya, Distrito de Boysun"
+  },
+  fr: {
+    lang_name:"Français",dir:"ltr",
+    nav_about:"À propos",nav_events:"Événements",nav_gallery:"Galerie",nav_schedule:"Programme",
+    hero_title:"BOYSUN BAHORI",hero_subtitle:"Patrimoine Culturel Immatériel de l'Ouzbékistan",hero_date:"1er mai 2026",
+    countdown_title:"Temps avant le Festival :",days:"Jours",hours:"Heures",minutes:"Minutes",seconds:"Secondes",
+    started:"Le Festival a commencé !",
+    about_title:"À propos du Festival Boysun Bahori",
+    about_text:"Boysun Bahori (Printemps de Boysun) est un festival ethnoculturel international organisé chaque année au printemps dans le district de Boysun, région de Surkhandarya, Ouzbékistan. Reconnu par l'UNESCO au titre du «Patrimoine culturel immatériel de l'humanité», ce festival célèbre les sports traditionnels tels que le kurash et le ko'pkari, la musique et la danse folklorique, ainsi que des expositions d'artisanat.",
+    events_title:"Événements",
+    kopkari_name:"Ko'pkari",kopkari_desc:"Jeu équestre traditionnel où les cavaliers se disputent une chèvre. Un spectacle impressionnant de bravoure et d'équitation.",
+    kurash_name:"Kurash",kurash_desc:"Style de lutte national de l'Ouzbékistan, l'un des arts martiaux les plus anciens.",
+    folklor_name:"Concours de Folklore",folklor_desc:"Compétitions de chants, danses et musiques par des ensembles folkloriques de différentes régions. Les meilleurs sont récompensés.",
+    balloon_name:"Festival de Montgolfières",balloon_desc:"Des montgolfières colorées planent dans le ciel. Le moment le plus vivant et romantique du festival.",
+    crafts_name:"Artisanat",crafts_desc:"Expositions de broderies, poteries, bijoux et autres métiers traditionnels.",
+    dron_name:"Drones, Spectacle Laser et Feux d'Artifice",dron_desc:"Fusion de technologie moderne et d'art national — formations de drones, faisceaux laser et feux d'artifice illuminent le ciel nocturne.",
+    gallery_title:"Galerie Photos",schedule_title:"Programme du Festival",schedule_may1:"1er mai",
+    sch1_time:"06:00",sch1_event:"Cérémonie d'ouverture",
+    sch2_time:"08:00",sch2_event:"Compétition de Ko'pkari",
+    sch3_time:"10:00",sch3_event:"Compétition de Kurash",
+    sch4_time:"13:00",sch4_event:"Musique et Danse Folklorique",
+    sch5_time:"15:00",sch5_event:"Exposition d'Artisanat",
+    sch6_time:"17:00",sch6_event:"Programme Culturel International",
+    sch7_time:"19:00",sch7_event:"Cérémonie de Clôture et Concert",
+    footer_copy:"© 2026 Boysun Bahori. Tous droits réservés.",
+    footer_location:"Lieu : Ouzbékistan, Région de Surkhandarya, District de Boysun"
+  },
+  de: {
+    lang_name:"Deutsch",dir:"ltr",
+    nav_about:"Über uns",nav_events:"Veranstaltungen",nav_gallery:"Galerie",nav_schedule:"Programm",
+    hero_title:"BOYSUN BAHORI",hero_subtitle:"Immaterielles Kulturerbe Usbekistans",hero_date:"1. Mai 2026",
+    countdown_title:"Zeit bis zum Festival:",days:"Tage",hours:"Stunden",minutes:"Minuten",seconds:"Sekunden",
+    started:"Das Festival hat begonnen!",
+    about_title:"Über das Boysun Bahori Festival",
+    about_text:"Boysun Bahori (Frühling von Boysun) ist ein internationales ethnokulturelles Festival, das jährlich im Frühling im Bezirk Boysun, Region Surkhandarya, Usbekistan stattfindet. Von der UNESCO als 'Immaterielles Kulturerbe der Menschheit' anerkannt, feiert dieses Festival traditionelle Sportarten wie Kurash und Ko'pkari, Volksmusik, Tanz und Handwerksausstellungen.",
+    events_title:"Veranstaltungen",
+    kopkari_name:"Ko'pkari",kopkari_desc:"Traditionelles Reiterspiel, bei dem Reiter um eine Ziegenkarkasse kämpfen. Ein beeindruckendes Spektakel aus Mut und Reitkunst.",
+    kurash_name:"Kurash",kurash_desc:"Nationaler Ringkampfstil Usbekistans, eine der ältesten Kampfkünste.",
+    folklor_name:"Folklore-Wettbewerbe",folklor_desc:"Traditionelle Gesangs-, Tanz- und Musikwettbewerbe von Folkloreensembles aus verschiedenen Regionen. Die besten werden ausgezeichnet.",
+    balloon_name:"Heißluftballon-Festival",balloon_desc:"Bunte Heißluftballons schweben über den Himmel. Der lebendigste und romantischste Moment des Festivals.",
+    crafts_name:"Kunsthandwerk",crafts_desc:"Ausstellungen von Stickereien, Töpferwaren, Schmuck und anderen traditionellen Handwerken.",
+    dron_name:"Drohnen, Lasershow & Feuerwerk",dron_desc:"Verbindung moderner Technologie und nationaler Kunst — Drohnen-Formationen, Laserstrahlen und Feuerwerk erhellen den Nachthimmel.",
+    gallery_title:"Fotogalerie",schedule_title:"Festivalprogramm",schedule_may1:"1. Mai",
+    sch1_time:"06:00",sch1_event:"Große Eröffnungszeremonie",
+    sch2_time:"08:00",sch2_event:"Ko'pkari-Wettbewerb",
+    sch3_time:"10:00",sch3_event:"Kurash-Wettbewerb",
+    sch4_time:"13:00",sch4_event:"Volksmusik und Tanz",
+    sch5_time:"15:00",sch5_event:"Kunsthandwerksausstellung",
+    sch6_time:"17:00",sch6_event:"Internationales Kulturprogramm",
+    sch7_time:"19:00",sch7_event:"Abschlusszeremonie und Konzert",
+    footer_copy:"© 2026 Boysun Bahori. Alle Rechte vorbehalten.",
+    footer_location:"Ort: Usbekistan, Region Surkhandarya, Bezirk Boysun"
+  },
+  it: {
+    lang_name:"Italiano",dir:"ltr",
+    nav_about:"Chi siamo",nav_events:"Eventi",nav_gallery:"Galleria",nav_schedule:"Programma",
+    hero_title:"BOYSUN BAHORI",hero_subtitle:"Patrimonio Culturale Immateriale dell'Uzbekistan",hero_date:"1° maggio 2026",
+    countdown_title:"Tempo al Festival:",days:"Giorni",hours:"Ore",minutes:"Minuti",seconds:"Secondi",
+    started:"Il Festival è iniziato!",
+    about_title:"Il Festival Boysun Bahori",
+    about_text:"Boysun Bahori (Primavera di Boysun) è un festival etnoculturale internazionale che si svolge ogni anno in primavera nel distretto di Boysun, regione di Surkhandarya, Uzbekistan. Riconosciuto dall'UNESCO come 'Patrimonio Culturale Immateriale dell'Umanità', celebra sport tradizionali come kurash e ko'pkari, musica e danza folkloristica, ed esposizioni di artigianato.",
+    events_title:"Eventi",
+    kopkari_name:"Ko'pkari",kopkari_desc:"Gioco equestre tradizionale in cui i cavalieri si contendono una carcassa di capra. Uno spettacolo di coraggio e abilità equestre.",
+    kurash_name:"Kurash",kurash_desc:"Stile di lotta nazionale dell'Uzbekistan, una delle arti marziali più antiche.",
+    folklor_name:"Gare di Folklore",folklor_desc:"Competizioni di canti, danze e musica di ensemble folkloristici da varie regioni. I migliori vengono premiati.",
+    balloon_name:"Festival delle Mongolfiere",balloon_desc:"Mongolfiere colorate si librano nel cielo. Il momento più vivace e romantico del festival.",
+    crafts_name:"Artigianato",crafts_desc:"Esposizioni di ricami, ceramiche, gioielli e altri mestieri tradizionali.",
+    dron_name:"Droni, Spettacolo Laser e Fuochi d'Artificio",dron_desc:"Fusione di tecnologia moderna e arte nazionale — formazioni di droni, raggi laser e fuochi d'artificio illuminano il cielo notturno.",
+    gallery_title:"Galleria Fotografica",schedule_title:"Programma del Festival",schedule_may1:"1° maggio",
+    sch1_time:"06:00",sch1_event:"Grande Cerimonia di Apertura",
+    sch2_time:"08:00",sch2_event:"Competizione di Ko'pkari",
+    sch3_time:"10:00",sch3_event:"Competizione di Kurash",
+    sch4_time:"13:00",sch4_event:"Musica e Danza Popolare",
+    sch5_time:"15:00",sch5_event:"Esposizione di Artigianato",
+    sch6_time:"17:00",sch6_event:"Programma Culturale Internazionale",
+    sch7_time:"19:00",sch7_event:"Cerimonia di Chiusura e Concerto",
+    footer_copy:"© 2026 Boysun Bahori. Tutti i diritti riservati.",
+    footer_location:"Luogo: Uzbekistan, Regione di Surkhandarya, Distretto di Boysun"
+  },
+  ko: {
+    lang_name:"한국어",dir:"ltr",
+    nav_about:"소개",nav_events:"행사",nav_gallery:"갤러리",nav_schedule:"일정",
+    hero_title:"보이순 바호리",hero_subtitle:"우즈베키스탄의 무형문화유산",hero_date:"2026년 5월 1일",
+    countdown_title:"페스티벌까지 남은 시간:",days:"일",hours:"시간",minutes:"분",seconds:"초",
+    started:"페스티벌이 시작되었습니다!",
+    about_title:"보이순 바호리 소개",
+    about_text:"보이순 바호리(보이순의 봄)는 우즈베키스탄 수르한다리야 지역 보이순 지구에서 매년 봄에 열리는 국제 민족문화 축제입니다. 유네스코 '인류 무형문화유산'으로 지정된 이 축제는 쿠라시, 코프카리 등 전통 스포츠와 민속 음악, 춤, 공예 전시를 선보입니다.",
+    events_title:"행사",
+    kopkari_name:"코프카리",kopkari_desc:"기마 선수들이 목표를 향해 염소 사체를 운반하는 전통 승마 경기. 용기와 기마술의 놀라운 표현.",
+    kurash_name:"쿠라시",kurash_desc:"우즈베키스탄의 전통 레슬링 스타일로 가장 오래된 무술 중 하나입니다.",
+    folklor_name:"민속 경연",folklor_desc:"다양한 지역 민속 단체의 전통 노래, 춤, 음악 대회. 최우수 팀이 시상됩니다.",
+    balloon_name:"열기구 축제",balloon_desc:"색색의 열기구가 하늘을 수놓습니다. 축제의 가장 생동감 있고 낭만적인 하이라이트.",
+    crafts_name:"공예",crafts_desc:"자수, 도예, 보석 세공 등 전통 공예품 전시회.",
+    dron_name:"드론, 레이저 쇼 & 불꽃놀이",dron_desc:"현대 기술과 민족 예술의 융합 — 드론 대형, 레이저 빔, 불꽃놀이가 밤하늘을 수놓습니다.",
+    gallery_title:"사진 갤러리",schedule_title:"페스티벌 일정",schedule_may1:"5월 1일",
+    sch1_time:"06:00",sch1_event:"개막식",
+    sch2_time:"08:00",sch2_event:"코프카리 경기",
+    sch3_time:"10:00",sch3_event:"쿠라시 경기",
+    sch4_time:"13:00",sch4_event:"민속 음악 및 춤",
+    sch5_time:"15:00",sch5_event:"공예 전시",
+    sch6_time:"17:00",sch6_event:"국제 문화 프로그램",
+    sch7_time:"19:00",sch7_event:"폐막식 및 콘서트",
+    footer_copy:"© 2026 보이순 바호리. 모든 권리 보유.",
+    footer_location:"위치: 우즈베키스탄 수르한다리야 주 보이순 지구"
+  },
+  kk: {
+    lang_name:"Қазақша",dir:"ltr",
+    nav_about:"Фестиваль туралы",nav_events:"Іс-шаралар",nav_gallery:"Галерея",nav_schedule:"Бағдарлама",
+    hero_title:"БОЙСУН БАХОРИ",hero_subtitle:"Өзбекстанның материалдық емес мәдени мұрасы",hero_date:"1 мамыр, 2026",
+    countdown_title:"Фестивальге дейін:",days:"Күн",hours:"Сағат",minutes:"Минут",seconds:"Секунд",
+    started:"Фестиваль басталды!",
+    about_title:"Бойсун Бахори туралы",
+    about_text:"Бойсун Бахори — Өзбекстанның Сурхандария облысының Бойсун ауданында жыл сайын көктемде өтетін халықаралық этномәдени фестиваль. ЮНЕСКО-ның 'Адамзаттың материалдық емес мәдени мұрасы' тізіміне енгізілген бұл фестивальде күрес, қопқары сияқты дәстүрлі спорт ойындары, халық музыкасы, биі және қолөнер көрмелері ұсынылады.",
+    events_title:"Іс-шаралар",
+    kopkari_name:"Қопқары",kopkari_desc:"Дәстүрлі ат спорты ойыны — жігіттер ешкі сүйегі үшін жарысады.",
+    kurash_name:"Күрес",kurash_desc:"Өзбекстанның ұлттық күрес түрі, ең ежелгі жекпе-жектердің бірі.",
+    folklor_name:"Фольклор байқаулары",folklor_desc:"Әртүрлі өңірлерден келген фольклор ұжымдарының дәстүрлі ән, би және музыка байқаулары. Үздіктер марапатталады.",
+    balloon_name:"Ауа шарлары фестивалі",balloon_desc:"Түрлі-түсті ауа шарлары аспанда қалқып жүреді. Фестивальдің ең жарқын және романтикалық сәті.",
+    crafts_name:"Қолөнер",crafts_desc:"Кесте, қыш өнері, зергерлік бұйымдар және басқа дәстүрлі қолөнер көрмелері.",
+    dron_name:"Дрон, Лазер шоу және Отшашу",dron_desc:"Заманауи технология мен ұлттық өнердің үйлесімі — дрон кескіндері, лазер сәулесі және отшашу түнгі аспанды жарқыратады.",
+    gallery_title:"Фотогалерея",schedule_title:"Фестиваль бағдарламасы",schedule_may1:"1 мамыр",
+    sch1_time:"06:00",sch1_event:"Ашылу салтанаты",
+    sch2_time:"08:00",sch2_event:"Қопқары жарысы",
+    sch3_time:"10:00",sch3_event:"Күрес жарысы",
+    sch4_time:"13:00",sch4_event:"Халық музыкасы мен биі",
+    sch5_time:"15:00",sch5_event:"Қолөнер көрмесі",
+    sch6_time:"17:00",sch6_event:"Халықаралық мәдени бағдарлама",
+    sch7_time:"19:00",sch7_event:"Жабылу салтанаты және концерт",
+    footer_copy:"© 2026 Бойсун Бахори. Барлық құқықтар қорғалған.",
+    footer_location:"Орналасуы: Өзбекстан, Сурхандария облысы, Бойсун ауданы"
+  },
+  ky: {
+    lang_name:"Кыргызча",dir:"ltr",
+    nav_about:"Фестиваль жөнүндө",nav_events:"Иш-чаралар",nav_gallery:"Галерея",nav_schedule:"Программа",
+    hero_title:"БОЙСУН БАХОРИ",hero_subtitle:"Өзбекстандын материалдык эмес маданий мурасы",hero_date:"1-май, 2026",
+    countdown_title:"Фестивалга чейин:",days:"Күн",hours:"Саат",minutes:"Мүнөт",seconds:"Секунд",
+    started:"Фестиваль башталды!",
+    about_title:"Бойсун Бахори жөнүндө",
+    about_text:"Бойсун Бахори — Өзбекстандын Сурхандарья облусунун Бойсун районунда жыл сайын жазда өтүүчү эл аралык этномаданий фестиваль. ЮНЕСКО тарабынан 'Адамзаттын материалдык эмес маданий мурасы' тизмесине киргизилген бул фестивалда кылым карыткан оюндар, эл музыкасы жана кол өнөрчүлүк көргөзмөлөрү сунушталат.",
+    events_title:"Иш-чаралар",
+    kopkari_name:"Купкери",kopkari_desc:"Каармандар чаңкыр талаада жоргонун сөөгү үчүн ат чабышат.",
+    kurash_name:"Кураш",kurash_desc:"Өзбекстандын улуттук күрөш түрү.",
+    folklor_name:"Фольклор сынактары",folklor_desc:"Ар кайсы аймактардан келген фольклор коллективдеринин салттуу ыр, бий жана музыка сынактары. Үздүктөр сыйланат.",
+    balloon_name:"Аба шарлары фестивалы",balloon_desc:"Түстүү аба шарлары асманда сүзөт. Фестивалдын эң жарык жана романтикалык учуру.",
+    crafts_name:"Кол өнөрчүлүк",crafts_desc:"Каштачылык, чөйчөкчүлүк, зергерчилик жана башка кол өнөрчүлүк көргөзмөлөрү.",
+    dron_name:"Дрон, Лазер шоу жана Оттуу оюн",dron_desc:"Заманбап технология менен улуттук өнөрдүн айкалышы — дрон фигуралары, лазер нуру жана оттуу оюн түн асманын жарытат.",
+    gallery_title:"Фотогалерея",schedule_title:"Фестивалдын программасы",schedule_may1:"1-май",
+    sch1_time:"06:00",sch1_event:"Ачылыш аземи",
+    sch2_time:"08:00",sch2_event:"Купкери жарышы",
+    sch3_time:"10:00",sch3_event:"Кураш жарышы",
+    sch4_time:"13:00",sch4_event:"Эл музыкасы жана бийи",
+    sch5_time:"15:00",sch5_event:"Кол өнөрчүлүк көргөзмөсү",
+    sch6_time:"17:00",sch6_event:"Эл аралык маданий программа",
+    sch7_time:"19:00",sch7_event:"Жабылыш аземи жана концерт",
+    footer_copy:"© 2026 Бойсун Бахори. Бардык укуктар корголгон.",
+    footer_location:"Жайгашкан жери: Өзбекстан, Сурхандарья облусу, Бойсун районуу"
+  },
+  tk: {
+    lang_name:"Türkmençe",dir:"ltr",
+    nav_about:"Festival hakda",nav_events:"Çäreler",nav_gallery:"Galereýa",nav_schedule:"Maksatnama",
+    hero_title:"BOÝSUN BAHORY",hero_subtitle:"Özbegistanyň Maddy Däl Medeni Mirasy",hero_date:"1-nji maý, 2026",
+    countdown_title:"Festivala çenli:",days:"Gün",hours:"Sagat",minutes:"Minut",seconds:"Sekunt",
+    started:"Festival başlady!",
+    about_title:"Boýsun Bahory hakda",
+    about_text:"Boýsun Bahory (Boýsunyň bahary) — Özbegistanyň Surhanderýa welaýatynyň Boýsun etrabyda her ýyl baharda geçirilýän halkara etnomadeni festiwaly. ÝUNESKO tarapyndan 'Adamzadyň maddy däl medeni mirasy' sanawyna girizilen bu festiwalda kurash, köpkäri ýaly geleneksel sport oýunlary, halk sazy, tansy we el işleri sergisi görkezilýär.",
+    events_title:"Çäreler",
+    kopkari_name:"Köpkäri",kopkari_desc:"Atly oýunçylar keçi jesedini maksat nokadyna eltmek üçin bäsleşýän geleneksel at oýny.",
+    kurash_name:"Kurash",kurash_desc:"Özbegistanyň milli göreş görnüşi, iň gadymy söweş sungatlaryndan biri.",
+    folklor_name:"Folklor bäsleşikleri",folklor_desc:"Dürli sebitlerden folklor toparlarynyň däp-dessur aýdym, tans we saz bäsleşikleri. Iň gowular sylaglanýar.",
+    balloon_name:"Howa şarlary festiwaly",balloon_desc:"Reňkli howa şarlary asmanda ýüzýär. Festiwalyň iň ýagty we romantik pursaty.",
+    crafts_name:"El Işleri",crafts_desc:"Keşde, küýzeçilik, zergärçilik we beýleki geleneksel el işleri sergileri.",
+    dron_name:"Dron, Lazer şüweleňi we Oduň oýny",dron_desc:"Döwrebap tehnologiýa we milli sungatyň sazlaşygy — dron şekilleri, lazer şöhlesi we oduň oýny gijeki asmany ýagtylandyrýar.",
+    gallery_title:"Fotogalereýa",schedule_title:"Festiwal Maksatnamasy",schedule_may1:"1-nji maý",
+    sch1_time:"06:00",sch1_event:"Dabaraly açylyş dabarasy",
+    sch2_time:"08:00",sch2_event:"Köpkäri bäsleşigi",
+    sch3_time:"10:00",sch3_event:"Kurash bäsleşigi",
+    sch4_time:"13:00",sch4_event:"Halk sazy we tansy",
+    sch5_time:"15:00",sch5_event:"El işleri sergisi",
+    sch6_time:"17:00",sch6_event:"Halkara medeni maksatnama",
+    sch7_time:"19:00",sch7_event:"Ýapylyş dabarasy we konsert",
+    footer_copy:"© 2026 Boýsun Bahory. Ähli hukuklar goralan.",
+    footer_location:"Salgy: Özbegistan, Surhanderýa welaýaty, Boýsun etraby"
+  },
+  tg: {
+    lang_name:"Тоҷикӣ",dir:"ltr",
+    nav_about:"Дар бораи фестивал",nav_events:"Чорабиниҳо",nav_gallery:"Галерея",nav_schedule:"Барнома",
+    hero_title:"БОЙСУН БАҲОРӢ",hero_subtitle:"Мероси фарҳангии ғайримоддии Ӯзбекистон",hero_date:"1 май, 2026",
+    countdown_title:"То оғози фестивал:",days:"Рӯз",hours:"Соат",minutes:"Дақиқа",seconds:"Сония",
+    started:"Фестивал оғоз ёфт!",
+    about_title:"Дар бораи Бойсун Баҳорӣ",
+    about_text:"Бойсун Баҳорӣ — фестивали байналмилалии этномаданӣ, ки ҳар сол дар баҳор дар ноҳияи Бойсун, вилояти Сурхондарё, Ӯзбекистон баргузор мешавад. Аз ҷониби ЮНЕСКО ҳамчун 'Мероси фарҳангии ғайримоддии башарият' ба расмият шинохта шудааст.",
+    events_title:"Чорабиниҳо",
+    kopkari_name:"Кӯпкарӣ",kopkari_desc:"Бозии анъанавии аспсаворӣ, ки дар он чавандозон барои бузи захмӣ мекӯшанд.",
+    kurash_name:"Кӯраш",kurash_desc:"Навъи мубориза миллии Ӯзбекистон, яке аз қадимтарин санъати ҷангӣ.",
+    folklor_name:"Мусобиқаҳои фолклорӣ",folklor_desc:"Мусобиқаҳои суруд, рақс ва мусиқии гурӯҳҳои фолклорӣ аз минтақаҳои гуногун. Беҳтаринҳо мукофотонида мешаванд.",
+    balloon_name:"Ҷашнвораи шарҳои ҳаво",balloon_desc:"Шарҳои ҳавоии рангоранг дар осмон мепарранд. Лаҳзаи барҷастатарин ва романтикии ҷашнвора.",
+    crafts_name:"Ҳунармандӣ",crafts_desc:"Намоишгоҳи кашидадӯзӣ, кулолгарӣ, заргарӣ ва дигар ҳунармандиҳои анъанавӣ.",
+    dron_name:"Дрон, Намоиши лазерӣ ва Оташбозӣ",dron_desc:"Омезиши технологияи муосир ва санъати миллӣ — фигураҳои дрон, нури лазер ва оташбозӣ осмони шабро мунаввар мекунанд.",
+    gallery_title:"Фотогалерея",schedule_title:"Барномаи Фестивал",schedule_may1:"1 май",
+    sch1_time:"06:00",sch1_event:"Маросими кушоиши расмӣ",
+    sch2_time:"08:00",sch2_event:"Мусобиқаи кӯпкарӣ",
+    sch3_time:"10:00",sch3_event:"Мусобиқаи кӯраш",
+    sch4_time:"13:00",sch4_event:"Мусиқӣ ва рақси мардумӣ",
+    sch5_time:"15:00",sch5_event:"Намоишгоҳи ҳунармандӣ",
+    sch6_time:"17:00",sch6_event:"Барномаи фарҳангии байналмилалӣ",
+    sch7_time:"19:00",sch7_event:"Маросими ихтитом ва консерт",
+    footer_copy:"© 2026 Бойсун Баҳорӣ. Ҳамаи ҳуқуқҳо маҳфуз аст.",
+    footer_location:"Мавзеъ: Ӯзбекистон, Вилояти Сурхондарё, Ноҳияи Бойсун"
+  },
+  fa: {
+    lang_name:"دری",dir:"rtl",
+    nav_about:"درباره",nav_events:"رویدادها",nav_gallery:"گالری",nav_schedule:"برنامه",
+    hero_title:"بویسون بهاری",hero_subtitle:"میراث فرهنگی ناملموس ازبکستان",hero_date:"۱ می ۲۰۲۶",
+    countdown_title:"زمان تا جشنواره:",days:"روز",hours:"ساعت",minutes:"دقیقه",seconds:"ثانیه",
+    started:"جشنواره آغاز شد!",
+    about_title:"درباره جشنواره بویسون بهاری",
+    about_text:"بویسون بهاری (بهار بویسون) یک جشنواره بین‌المللی قومی-فرهنگی است که هر سال در بهار در ناحیه بویسون، ولایت سورخان‌دریا، ازبکستان برگزار می‌شود. این جشنواره توسط یونسکو به عنوان 'میراث فرهنگی ناملموس بشریت' به رسمیت شناخته شده و شامل ورزش‌های سنتی مانند کوراش و کوپکاری، موسیقی و رقص محلی و نمایشگاه صنایع دستی است.",
+    events_title:"رویدادها",
+    kopkari_name:"کوپکاری",kopkari_desc:"بازی سنتی اسب‌سواری که در آن سوارکاران برای لاشه بز رقابت می‌کنند.",
+    kurash_name:"کوراش",kurash_desc:"سبک ملی کشتی ازبکستان، یکی از قدیمی‌ترین هنرهای رزمی.",
+    folklor_name:"مسابقات فولکلور",folklor_desc:"مسابقات آواز، رقص و موسیقی گروه‌های فولکلور از مناطق مختلف. بهترین‌ها جایزه می‌گیرند.",
+    balloon_name:"جشنواره بالون‌های هوا",balloon_desc:"بالون‌های رنگارنگ در آسمان به پرواز در می‌آیند. درخشان‌ترین و رمانتیک‌ترین لحظه جشنواره.",
+    crafts_name:"صنایع دستی",crafts_desc:"نمایشگاه گلدوزی، سفالگری، جواهرسازی و سایر صنایع دستی سنتی.",
+    dron_name:"درون، نمایش لیزری و آتش‌بازی",dron_desc:"ترکیب فناوری مدرن و هنر ملی — تصاویر پرنده‌ها، اشعه لیزر و آتش‌بازی آسمان شب را روشن می‌کند.",
+    gallery_title:"گالری عکس",schedule_title:"برنامه جشنواره",schedule_may1:"۱ می",
+    sch1_time:"۰۶:۰۰",sch1_event:"مراسم افتتاحیه",
+    sch2_time:"۰۸:۰۰",sch2_event:"مسابقه کوپکاری",
+    sch3_time:"۱۰:۰۰",sch3_event:"مسابقه کوراش",
+    sch4_time:"۱۳:۰۰",sch4_event:"موسیقی و رقص محلی",
+    sch5_time:"۱۵:۰۰",sch5_event:"نمایشگاه صنایع دستی",
+    sch6_time:"۱۷:۰۰",sch6_event:"برنامه فرهنگی بین‌المللی",
+    sch7_time:"۱۹:۰۰",sch7_event:"مراسم اختتامیه و کنسرت",
+    footer_copy:"© ۲۰۲۶ بویسون بهاری. تمامی حقوق محفوظ است.",
+    footer_location:"مکان: ازبکستان، ولایت سورخان‌دریا، ناحیه بویسون"
+  },
+  zh: {
+    lang_name:"中文",dir:"ltr",
+    nav_about:"关于",nav_events:"活动",nav_gallery:"图库",nav_schedule:"日程",
+    hero_title:"博伊顺之春",hero_subtitle:"乌兹别克斯坦非物质文化遗产",hero_date:"2026年5月1日",
+    countdown_title:"距节日还有：",days:"天",hours:"小时",minutes:"分钟",seconds:"秒",
+    started:"节日开幕！",
+    about_title:"关于博伊顺之春节",
+    about_text:"博伊顺之春（Boysun Bahori）是每年春天在乌兹别克斯坦苏尔汉达里亚地区博伊顺区举办的国际民族文化节。该节日被联合国教科文组织列为『人类非物质文化遗产』，展示了库拉什、科普卡里等传统体育项目，以及民族音乐、舞蹈和手工艺展览。",
+    events_title:"活动",
+    kopkari_name:"科普卡里",kopkari_desc:"传统马术运动，骑手们争夺山羊，展示勇气与骑术。",
+    kurash_name:"库拉什",kurash_desc:"乌兹别克斯坦的国家摔跤风格，是最古老的武术之一。",
+    folklor_name:"民俗竞赛",folklor_desc:"来自各地区民俗团体的传统歌唱、舞蹈和音乐比赛。最优秀的团体将获奖。",
+    balloon_name:"热气球节",balloon_desc:"色彩斑斓的热气球在天空中翱翔。节日最生动、最浪漫的亮点。",
+    crafts_name:"手工艺",crafts_desc:"刺绣、陶艺、珠宝及其他传统工艺展览。",
+    dron_name:"无人机、激光秀和烟火表演",dron_desc:"现代科技与民族艺术的融合——无人机编队、激光束和烟火点亮夜空。",
+    gallery_title:"图片库",schedule_title:"节日日程",schedule_may1:"5月1日",
+    sch1_time:"06:00",sch1_event:"盛大开幕式",
+    sch2_time:"08:00",sch2_event:"科普卡里比赛",
+    sch3_time:"10:00",sch3_event:"库拉什比赛",
+    sch4_time:"13:00",sch4_event:"民族音乐与舞蹈",
+    sch5_time:"15:00",sch5_event:"手工艺展览",
+    sch6_time:"17:00",sch6_event:"国际文化节目",
+    sch7_time:"19:00",sch7_event:"闭幕式与音乐会",
+    footer_copy:"© 2026 博伊顺之春。版权所有。",
+    footer_location:"地点：乌兹别克斯坦苏尔汉达里亚地区博伊顺区"
+  },
+  ja: {
+    lang_name:"日本語",dir:"ltr",
+    nav_about:"概要",nav_events:"イベント",nav_gallery:"ギャラリー",nav_schedule:"スケジュール",
+    hero_title:"ボイスン・バホリ",hero_subtitle:"ウズベキスタンの無形文化遺産",hero_date:"2026年5月1日",
+    countdown_title:"フェスティバルまで：",days:"日",hours:"時間",minutes:"分",seconds:"秒",
+    started:"フェスティバルが始まりました！",
+    about_title:"ボイスン・バホリについて",
+    about_text:"ボイスン・バホリ（ボイスンの春）は、毎年春にウズベキスタン・スルハンダリア州ボイスン地区で開催される国際民族文化フェスティバルです。ユネスコの「人類の無形文化遺産」に認定されており、クラッシュ（ウズベク式レスリング）、コプカリ（伝統的馬術）などの伝統スポーツ、民族音楽・舞踊、工芸品展示が行われます。",
+    events_title:"イベント",
+    kopkari_name:"コプカリ",kopkari_desc:"騎馬選手たちがヤギの死骸をゴールに運ぶ伝統的な馬術競技。勇気と騎馬術の迫力ある披露。",
+    kurash_name:"クラッシュ",kurash_desc:"ウズベキスタンの国民的なレスリングスタイル、最古の武術の一つ。",
+    folklor_name:"フォークロア競演",folklor_desc:"各地域の民俗団体による伝統的な歌、踊り、音楽の競演。最優秀チームが表彰されます。",
+    balloon_name:"熱気球フェスティバル",balloon_desc:"色とりどりの熱気球が空を舞います。フェスティバルで最も鮮やかでロマンチックなハイライト。",
+    crafts_name:"工芸",crafts_desc:"刺繍、陶芸、ジュエリーなどの伝統的な工芸品展示。",
+    dron_name:"ドローン・レーザーショー・花火",dron_desc:"現代技術と民族芸術の融合 — ドローンのフォーメーション、レーザー光線、花火が夜空を彩ります。",
+    gallery_title:"フォトギャラリー",schedule_title:"フェスティバルスケジュール",schedule_may1:"5月1日",
+    sch1_time:"06:00",sch1_event:"開会式",
+    sch2_time:"08:00",sch2_event:"コプカリ競技",
+    sch3_time:"10:00",sch3_event:"クラッシュ競技",
+    sch4_time:"13:00",sch4_event:"民族音楽・舞踊",
+    sch5_time:"15:00",sch5_event:"工芸品展示",
+    sch6_time:"17:00",sch6_event:"国際文化プログラム",
+    sch7_time:"19:00",sch7_event:"閉会式とコンサート",
+    footer_copy:"© 2026 ボイスン・バホリ。全権利は保護されています。",
+    footer_location:"場所：ウズベキスタン、スルハンダリア州、ボイスン地区"
+  }
+};
+
+// ── GALLERY PHOTOS — only existing files ──
+const PHOTOS = (() => {
+  const list = [];
+  // Series A: 8 photos (13-48-38)
+  [1,2,4,5,6,7,8,10].forEach(n =>
+    list.push(`Photos/photo_${n}_2026-04-13_13-48-38.jpg`)
+  );
+  // Series B: 82 existing photos (13-51-08)
+  [1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,18,21,22,23,24,26,27,28,29,30,31,32,
+   33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,50,51,52,54,55,56,57,59,60,
+   61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,81,82,83,85,86,
+   88,89,90,91,92,93,94].forEach(n =>
+    list.push(`Photos/photo_${n}_2026-04-13_13-51-08.jpg`)
+  );
+  // Series C: 80 existing photos (13-51-47)
+  [1,2,3,4,5,6,7,8,9,10,11,12,13,15,16,17,18,19,20,21,22,23,24,25,26,27,28,
+   30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,
+   54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,
+   78,79,80,81,82].forEach(n =>
+    list.push(`Photos/photo_${n}_2026-04-13_13-51-47.jpg`)
+  );
+  return list;
+})();
+
+// ── LANGUAGE SWITCH ──
+let currentLang = 'en';
+
+function applyLang(lang) {
+  const d = T[lang];
+  if (!d) return;
+  currentLang = lang;
+  document.documentElement.lang = lang.split('-')[0];
+  document.documentElement.dir = d.dir || 'ltr';
+  document.title = 'Boysun Bahori 2026';
+  document.getElementById('langName').textContent = d.lang_name;
+  // update all data-i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (d[key] !== undefined) el.textContent = d[key];
+  });
+  // update active in dropdown
+  document.querySelectorAll('#langDropdown a').forEach(a => {
+    a.classList.toggle('active', a.dataset.lang === lang);
+  });
+  // rebuild schedule
+  buildSchedule();
+}
+
+// ── BUILD SCHEDULE — multilingual ──
+const SCHEDULE = [
+  {
+    date: '30 Apr',
+    label: {
+      uz:"Kirish bosqichi", 'uz-cy':"Кириш босқичи",
+      ru:"Подготовительный этап", en:"Preparation Stage",
+      es:"Etapa de preparación", fr:"Phase préparatoire",
+      de:"Vorbereitungsphase", it:"Fase preparatoria",
+      ko:"준비 단계", kk:"Дайындық кезеңі", ky:"Даярдык баскычы",
+      tk:"Taýýarlyk tapgyry", tg:"Марҳилаи омодагӣ",
+      fa:"مرحله آمادگی", zh:"准备阶段", ja:"準備段階"
+    },
+    items: {
+      uz:[['—','Delegatsiyalarni Termiz aeroporti va Boysun vokzalida kutib olish'],
+          ['—','Termiz davlat universitetida ilmiy-amaliy konferensiya']],
+      ru:[['—','Встреча делегаций в аэропорту Термеза и на вокзале Байсуна'],
+          ['—','Научно-практическая конференция в Термезском государственном университете']],
+      en:[['—','Receiving delegations at Termez airport and Boysun train station'],
+          ['—','Scientific-practical conference at Termez State University']]
+    }
+  },
+  {
+    date: '1 May',
+    label: {
+      uz:"1-kun — Festivalning ochilishi", 'uz-cy':"1-кун — Фестивалнинг очилиши",
+      ru:"День 1 — Открытие фестиваля", en:"Day 1 — Festival Opening",
+      es:"Día 1 — Apertura del festival", fr:"Jour 1 — Ouverture du festival",
+      de:"Tag 1 — Festivaleröffnung", it:"Giorno 1 — Apertura del festival",
+      ko:"1일 — 페스티벌 개막", kk:"1-күн — Фестивалдың ашылуы",
+      ky:"1-күн — Фестивалдын ачылышы", tk:"1-gün — Festiwalyň açylmagy",
+      tg:"Рӯзи 1 — Кушоиши ҷашнвора", fa:"روز ۱ — افتتاحیه جشنواره",
+      zh:"第1天 — 节日开幕", ja:"1日目 — フェスティバル開幕"
+    },
+    items: {
+      uz:[['09:00','Matbuot anjumani'],['11:00','Tantanali ochilish marosimi'],
+          ['13:00',"Milliy taomlar, non, ziravorlar ko'rgazmasi"],
+          ['15:00','Rassomchilik va dorbozlik tomoshalari'],
+          ['20:00','Dron, lazer namoyishlari va mushakbozlik']],
+      ru:[['09:00','Пресс-конференция'],['11:00','Торжественная церемония открытия'],
+          ['13:00','Выставка национальных блюд, хлеба и специй'],
+          ['15:00','Художественные выставки и выступления канатоходцев'],
+          ['20:00','Шоу дронов, лазерное шоу и фейерверк']],
+      en:[['09:00','Press conference'],['11:00','Grand opening ceremony'],
+          ['13:00','Exhibition of national dishes, bread & spices'],
+          ['15:00','Art exhibitions and tightrope walking shows'],
+          ['20:00','Drone & laser show and fireworks']]
+    }
+  },
+  {
+    date: '2–3 May',
+    label: {
+      uz:"2–3-kun — Tanlovlar va ziyorat", 'uz-cy':"2–3-кун — Танловлар ва зиёрат",
+      ru:"Дни 2–3 — Соревнования и экскурсии", en:"Days 2–3 — Competitions & Tours",
+      es:"Días 2–3 — Competiciones y excursiones", fr:"Jours 2–3 — Concours et visites",
+      de:"Tage 2–3 — Wettbewerbe & Ausflüge", it:"Giorni 2–3 — Gare e visite",
+      ko:"2–3일 — 경연 및 탐방", kk:"2–3-күн — Байқаулар және саяхат",
+      ky:"2–3-күн — Сынактар жана саякат", tk:"2–3-gün — Bäsleşikler we gezelençler",
+      tg:"Рӯзҳои 2–3 — Мусобиқаҳо ва сайёҳӣ", fa:"روزهای ۲–۳ — مسابقات و گشت‌وگذار",
+      zh:"第2–3天 — 竞赛与参观", ja:"2–3日目 — 競技・見学ツアー"
+    },
+    items: {
+      uz:[['09:00',"Folklor jamoalarining asosiy ko'rik-tanlovlari"],
+          ['11:00','"Omonxona", "Xo\'ja Sulton valiy", "Zovboshi" kabi maskanlarga info-tur'],
+          ['14:00','Kurash musobaqalari'],
+          ['16:00','Havo sharlari va varraklar sayli'],
+          ['19:00',"G'oliblarni taqdirlash marosimi va gala-konsert"]],
+      ru:[['09:00','Основные конкурсы фольклорных ансамблей'],
+          ['11:00','Инфо-туры к святым местам: «Омонхона», «Хожа Султон», «Завбоши»'],
+          ['14:00','Соревнования по курашу'],
+          ['16:00','Фестиваль воздушных шаров и воздушных змеев'],
+          ['19:00','Церемония награждения победителей и гала-концерт']],
+      en:[['09:00','Main folklore ensemble competitions'],
+          ['11:00','Info-tours to sacred sites: Omonxona, Khoja Sulton Vali, Zavboshi'],
+          ['14:00','Kurash wrestling competitions'],
+          ['16:00','Hot air balloon and kite festival'],
+          ['19:00','Award ceremony and gala concert']]
+    }
+  },
+  {
+    date: '4–5 May',
+    label: {
+      uz:"4–5-kun — Teatr va san'at", 'uz-cy':"4–5-кун — Театр ва санъат",
+      ru:"Дни 4–5 — Театр и искусство", en:"Days 4–5 — Theater & Arts",
+      es:"Días 4–5 — Teatro y arte", fr:"Jours 4–5 — Théâtre et art",
+      de:"Tage 4–5 — Theater & Kunst", it:"Giorni 4–5 — Teatro e arte",
+      ko:"4–5일 — 연극 및 예술", kk:"4–5-күн — Театр және өнер",
+      ky:"4–5-күн — Театр жана өнөр", tk:"4–5-gün — Teatr we sungat",
+      tg:"Рӯзҳои 4–5 — Театр ва санъат", fa:"روزهای ۴–۵ — تئاتر و هنر",
+      zh:"第4–5天 — 戏剧与艺术", ja:"4–5日目 — 演劇と芸術"
+    },
+    items: {
+      uz:[['10:00',"Milliy liboslar ko'rgazmasi"],
+          ['12:00','Teatr spektakllari namoyishi'],
+          ['15:00',"Maqom san'ati va filarmoniya konserti"],
+          ['19:00','Estrada yulduzlari ishtirokidagi konsert']],
+      ru:[['10:00','Выставка национальных костюмов'],
+          ['12:00','Театральные спектакли'],
+          ['15:00','Искусство макома и концерт филармонии'],
+          ['19:00','Концерт с участием эстрадных звёзд']],
+      en:[['10:00','National costume exhibition'],
+          ['12:00','Theater performances'],
+          ['15:00','Maqom art and philharmonic concert'],
+          ['19:00','Concert featuring pop stars']]
+    }
+  },
+  {
+    date: '6–7 May',
+    label: {
+      uz:"6–7-kun — Milliy sport va marafon", 'uz-cy':"6–7-кун — Миллий спорт ва марафон",
+      ru:"Дни 6–7 — Национальный спорт и марафон", en:"Days 6–7 — National Sports & Marathon",
+      es:"Días 6–7 — Deporte nacional y maratón", fr:"Jours 6–7 — Sports nationaux et marathon",
+      de:"Tage 6–7 — Nationalsport & Marathon", it:"Giorni 6–7 — Sport nazionale e maratona",
+      ko:"6–7일 — 국가 스포츠 및 마라톤", kk:"6–7-күн — Ұлттық спорт және марафон",
+      ky:"6–7-күн — Улуттук спорт жана марафон", tk:"6–7-gün — Milli sport we marafon",
+      tg:"Рӯзҳои 6–7 — Варзиши миллӣ ва марафон", fa:"روزهای ۶–۷ — ورزش ملی و ماراتن",
+      zh:"第6–7天 — 民族体育与马拉松", ja:"6–7日目 — 民族スポーツ・マラソン"
+    },
+    items: {
+      uz:[['08:00','"Inkabod" MFY hududida uloq-ko\'pkari musobaqasi'],
+          ['10:00','"Xo\'jamayxona" ziyoratgohi yo\'llarida marafon'],
+          ['13:00','Tangisarda alpinizm musobaqasi']],
+      ru:[['08:00','Соревнования по улоқ-купкари в «Инкабод»'],
+          ['10:00','Марафон по дорогам святилища «Хожамайхона»'],
+          ['13:00','Соревнования по альпинизму в Тангисаре']],
+      en:[['08:00',"Uloq-Ko'pkari competition in Inkabod district"],
+          ['10:00','Marathon on roads of Khojamaykhona shrine'],
+          ['13:00','Alpinism competition in Tangissar']]
+    }
+  },
+  {
+    date: '8–9 May',
+    label: {
+      uz:"8–9-kun — Madaniy tadbirlar", 'uz-cy':"8–9-кун — Маданий тадбирлар",
+      ru:"Дни 8–9 — Культурные мероприятия", en:"Days 8–9 — Cultural Events",
+      es:"Días 8–9 — Eventos culturales", fr:"Jours 8–9 — Événements culturels",
+      de:"Tage 8–9 — Kulturveranstaltungen", it:"Giorni 8–9 — Eventi culturali",
+      ko:"8–9일 — 문화 행사", kk:"8–9-күн — Мәдени іс-шаралар",
+      ky:"8–9-күн — Маданий иш-чаралар", tk:"8–9-gün — Medeni çäreler",
+      tg:"Рӯзҳои 8–9 — Чорабиниҳои фарҳангӣ", fa:"روزهای ۸–۹ — رویدادهای فرهنگی",
+      zh:"第8–9天 — 文化活动", ja:"8–9日目 — 文化イベント"
+    },
+    items: {
+      uz:[['10:00','Tuman va shaharlar folklor jamoalarining musiqiy dasturlari'],
+          ['19:00','Taniqli estrada xonandalari ishtirokidagi kechki konsertlar']],
+      ru:[['10:00','Музыкальные программы фольклорных ансамблей районов и городов'],
+          ['19:00','Вечерние концерты с участием известных эстрадных певцов']],
+      en:[['10:00','Musical programs by folklore ensembles from districts and cities'],
+          ['19:00','Evening concerts featuring renowned pop singers']]
+    }
+  },
+  {
+    date: '10 May',
+    label: {
+      uz:"10-kun — Festivalning yopilishi", 'uz-cy':"10-кун — Фестивалнинг ёпилиши",
+      ru:"День 10 — Закрытие фестиваля", en:"Day 10 — Festival Closing",
+      es:"Día 10 — Clausura del festival", fr:"Jour 10 — Clôture du festival",
+      de:"Tag 10 — Festivalabschluss", it:"Giorno 10 — Chiusura del festival",
+      ko:"10일 — 페스티벌 폐막", kk:"10-күн — Фестивалдың жабылуы",
+      ky:"10-күн — Фестивалдын жабылышы", tk:"10-gün — Festiwalyň ýapylmagy",
+      tg:"Рӯзи 10 — Ихтитоми ҷашнвора", fa:"روز ۱۰ — اختتامیه جشنواره",
+      zh:"第10天 — 节日闭幕", ja:"10日目 — フェスティバル閉幕"
+    },
+    items: {
+      uz:[['11:00','Tantanali yopilish marosimi va yakuniy gala-konsert'],
+          ['15:00','Ishtirokchi va mehmonlarni Termiz hamda Boysun shaharlaridan kuzatish']],
+      ru:[['11:00','Торжественная церемония закрытия и финальный гала-концерт'],
+          ['15:00','Проводы участников и гостей из Термеза и Байсуна']],
+      en:[['11:00','Grand closing ceremony and final gala concert'],
+          ['15:00','Seeing off participants and guests from Termez and Boysun']]
+    }
+  }
+];
+
+const SCHEDULE_NOTE = {
+  uz:"Doimiy faoliyatlar: milliy hunarmandchilik ko'rgazmalari, dorbozlik tomoshalari va turistik info-turlar festival davomida har kuni o'tkaziladi.",
+  ru:"Постоянные мероприятия: выставки народных ремёсел, выступления канатоходцев и туристические инфо-туры проводятся ежедневно в течение всего фестиваля.",
+  en:"Daily activities: national handicraft exhibitions, tightrope walking shows and tourist info-tours take place throughout the festival."
+};
+
+function buildSchedule() {
+  const lang = currentLang;
+  const itemLang = (lang === 'uz' || lang === 'uz-cy') ? 'uz' : (lang === 'ru' ? 'ru' : 'en');
+  const container = document.getElementById('scheduleDays');
+  container.innerHTML = '';
+  SCHEDULE.forEach((day, di) => {
+    const open = di === 1;
+    const label = day.label[lang] || day.label['en'];
+    const items = day.items[itemLang] || day.items['en'];
+    const header = `<div class="sday-header${open?' open':''}" onclick="toggleDay(this)">
+      <span class="sday-num">${day.date}</span>
+      <span class="sday-title">${label}</span>
+      <span class="sday-arrow">▾</span>
+    </div>`;
+    const body = `<div class="sday-body${open?' open':''}">
+      ${items.map(([t,e])=>`<div class="sday-item"><span class="sday-event">${e}</span></div>`).join('')}
+    </div>`;
+    const div = document.createElement('div');
+    div.className = 'sday';
+    div.innerHTML = header + body;
+    container.appendChild(div);
+  });
+  const note = document.createElement('p');
+  note.style.cssText = 'color:rgba(255,255,255,0.5);font-size:0.82rem;text-align:center;margin-top:1.5rem;line-height:1.6;';
+  note.textContent = SCHEDULE_NOTE[itemLang] || SCHEDULE_NOTE['en'];
+  container.appendChild(note);
+}
+
+function toggleDay(header) {
+  header.classList.toggle('open');
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
+}
+
+// ── BUILD GALLERY — two infinite-scroll rows ──
+function buildGallery() {
+  const wrap = document.getElementById('galleryWrap');
+  const half = Math.ceil(PHOTOS.length / 2);
+  const row1Photos = PHOTOS.slice(0, half);
+  const row2Photos = PHOTOS.slice(half).reverse();
+
+  // getIdx(i) returns the real index in PHOTOS for item i in this row
+  function makeRow(photos, getIdx, cls) {
+    const row = document.createElement('div');
+    row.className = `gallery-row ${cls}`;
+    const len = photos.length;
+    // duplicate for seamless infinite loop
+    [...photos, ...photos].forEach((src, j) => {
+      const realIdx = getIdx(j % len);
+      const div = document.createElement('div');
+      div.className = 'gm-item';
+      div.innerHTML = `<img src="${src}" alt="Boysun Bahori" loading="lazy">`;
+      div.addEventListener('click', () => openLightbox(realIdx));
+      row.appendChild(div);
+    });
+    return row;
+  }
+
+  // row1: PHOTOS[0..half-1]  → realIdx = i
+  wrap.appendChild(makeRow(row1Photos, i => i, 'gallery-row-1'));
+  // row2: reversed slice      → realIdx = PHOTOS.length - 1 - i
+  wrap.appendChild(makeRow(row2Photos, i => PHOTOS.length - 1 - i, 'gallery-row-2'));
+}
+
+// ── LIGHTBOX ──
+let lbIndex = 0;
+const lbImg = document.getElementById('lbImg');
+const lightbox = document.getElementById('lightbox');
+function openLightbox(i) {
+  lbIndex = ((i % PHOTOS.length) + PHOTOS.length) % PHOTOS.length;
+  lbImg.src = PHOTOS[lbIndex];
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('lbClose').onclick = closeLightbox;
+lightbox.onclick = e => { if(e.target === e.currentTarget) closeLightbox(); };
+document.getElementById('lbPrev').onclick = () => {
+  lbIndex = (lbIndex - 1 + PHOTOS.length) % PHOTOS.length;
+  lbImg.src = PHOTOS[lbIndex];
+};
+document.getElementById('lbNext').onclick = () => {
+  lbIndex = (lbIndex + 1) % PHOTOS.length;
+  lbImg.src = PHOTOS[lbIndex];
+};
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') document.getElementById('lbPrev').click();
+  if (e.key === 'ArrowRight') document.getElementById('lbNext').click();
+});
+
+// ── HERO SLIDESHOW ──
+(function() {
+  const slides = document.querySelectorAll('.slide');
+  let idx = 0;
+  setInterval(() => {
+    slides[idx].classList.remove('active');
+    idx = (idx + 1) % slides.length;
+    slides[idx].classList.add('active');
+  }, 4500);
+})();
+
+// ── COUNTDOWN ──
+// Festival: May 1, 2026 at 06:00 Uzbekistan Time (UTC+5) = 01:00 UTC
+const FESTIVAL = new Date('2026-05-01T01:00:00Z');
+function updateCountdown() {
+  const now = new Date();
+  const diff = FESTIVAL - now;
+  const cd = document.getElementById('countdown');
+  const msg = document.getElementById('started-msg');
+  if (diff <= 0) {
+    document.querySelector('.countdown-wrap').style.display = 'none';
+    return;
+  }
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
+  const mins = Math.floor((diff % 3600000) / 60000);
+  const secs = Math.floor((diff % 60000) / 1000);
+  document.getElementById('cd-days').textContent = String(days).padStart(2,'0');
+  document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+  document.getElementById('cd-mins').textContent = String(mins).padStart(2,'0');
+  document.getElementById('cd-secs').textContent = String(secs).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ── LANG DROPDOWN — close on outside click ──
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.lang-wrap')) {
+    document.getElementById('langBtn').blur();
+  }
+});
+
+// ── INIT ──
+buildGallery();
+applyLang('en');
+</script>
+</body>
+</html>
