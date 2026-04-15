@@ -53,7 +53,7 @@
       height: 46px;
       width: auto;
       display: block;
-      filter: drop-shadow(0 1px 4px rgba(0,0,0,0.35));
+      filter: brightness(0) invert(1) drop-shadow(0 1px 6px rgba(255,255,255,0.3));
     }
     nav { display: flex; gap: 0.25rem; align-items: center; }
     nav a {
@@ -506,29 +506,20 @@
 
     /* ── FOOTER ── */
     footer {
-      background: linear-gradient(135deg,
-        rgba(15,27,42,0.95) 0%,
-        rgba(15,123,108,0.80) 50%,
-        rgba(15,27,42,0.95) 100%);
-      backdrop-filter: blur(10px);
-      padding: 2.5rem 1.5rem;
+      background: #0b1a10;
+      padding: 1.2rem 1.5rem 0.9rem;
       text-align: center;
     }
     .footer-logo {
       display: flex; justify-content: center;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.45rem;
     }
     .footer-loc {
-      font-size: 0.82rem; color: rgba(255,255,255,0.45);
-      margin-bottom: 0.4rem;
+      font-size: 0.8rem; color: rgba(255,255,255,0.45);
+      margin-bottom: 0.2rem;
     }
     .footer-copy {
-      font-size: 0.78rem; color: rgba(255,255,255,0.3);
-    }
-    .footer-flags {
-      margin: 1rem 0;
-      font-size: 1.6rem;
-      letter-spacing: 0.3rem;
+      font-size: 0.74rem; color: rgba(255,255,255,0.25);
     }
 
     /* ── RESPONSIVE ── */
@@ -580,6 +571,7 @@
       <a href="javascript:void(0)" data-lang="tg"    onclick="applyLang('tg');    document.getElementById('langBtn').focus();">Тоҷикӣ</a>
       <a href="javascript:void(0)" data-lang="fa"    onclick="applyLang('fa');    document.getElementById('langBtn').focus();">دری</a>
       <a href="javascript:void(0)" data-lang="zh"    onclick="applyLang('zh');    document.getElementById('langBtn').focus();">中文</a>
+      <a href="javascript:void(0)" data-lang="tr"    onclick="applyLang('tr');    document.getElementById('langBtn').focus();">Türkçe</a>
       <a href="javascript:void(0)" data-lang="ja"    onclick="applyLang('ja');    document.getElementById('langBtn').focus();">日本語</a>
     </div>
   </div>
@@ -588,10 +580,39 @@
 <!-- HERO -->
 <section id="hero">
   <div class="slides">
-    <div class="slide active" style="background-image:url('Photos/photo_1_2026-04-13_13-51-08.jpg')"></div>
-    <div class="slide" style="background-image:url('Photos/photo_1_2026-04-13_13-48-38.jpg')"></div>
-    <div class="slide" style="background-image:url('Photos/photo_50_2026-04-13_13-51-08.jpg')"></div>
-    <div class="slide" style="background-image:url('Photos/photo_60_2026-04-13_13-51-08.jpg')"></div>
+    <div class="slide active" style="background-image:url('Home/photo_1_2026-04-13_13-48-38.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_2_2026-04-13_13-48-38.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_4_2026-04-13_13-48-38.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_6_2026-04-13_13-48-38.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_7_2026-04-13_13-48-38.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_8_2026-04-13_13-48-38.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_1_2026-04-13_13-51-08.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_5_2026-04-13_13-51-08.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_6_2026-04-13_13-51-08.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_10_2026-04-13_13-51-08.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_12_2026-04-13_13-51-08.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_15_2026-04-13_13-51-08.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_18_2026-04-13_13-51-08.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_27_2026-04-13_13-51-08.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_28_2026-04-13_13-51-08.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_31_2026-04-13_13-51-08.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_91_2026-04-13_13-51-08.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_93_2026-04-13_13-51-08.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_2_2026-04-13_13-51-47.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_4_2026-04-13_13-51-47.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_5_2026-04-13_13-51-47.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_11_2026-04-13_13-51-47.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_12_2026-04-13_13-51-47.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_13_2026-04-13_13-51-47.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_16_2026-04-13_13-51-47.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_17_2026-04-13_13-51-47.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_18_2026-04-13_13-51-47.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_39_2026-04-13_13-51-47.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_45_2026-04-13_13-51-47.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_48_2026-04-13_13-51-47.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_54_2026-04-13_13-51-47.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_57_2026-04-13_13-51-47.jpg')"></div>
+    <div class="slide" style="background-image:url('Home/photo_60_2026-04-13_13-51-47.jpg')"></div>
   </div>
   <div class="hero-content">
     <div class="hero-badge">UNESCO · 2001</div>
@@ -728,8 +749,9 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo"><img src="logo.png" alt="Boysun Bahori 2026" style="height:64px;width:auto;filter:brightness(1.15) drop-shadow(0 2px 6px rgba(0,0,0,0.4));"></div>
-  <div class="footer-flags">🇺🇿</div>
+  <div class="footer-logo">
+    <img src="logo.png" alt="Boysun Bahori 2026" style="height:82px;width:auto;filter:brightness(0) invert(1) drop-shadow(0 1px 6px rgba(255,255,255,0.2));">
+  </div>
   <p class="footer-loc" data-i18n="footer_location">Location: Uzbekistan, Surkhandarya Region, Boysun District</p>
   <p class="footer-copy" data-i18n="footer_copy">© 2026 Boysun Bahori. All rights reserved.</p>
 </footer>
@@ -1135,6 +1157,32 @@ const T = {
     footer_copy:"© 2026 博伊顺之春。版权所有。",
     footer_location:"地点：乌兹别克斯坦苏尔汉达里亚地区博伊顺区"
   },
+  tr: {
+    lang_name:"Türkçe",dir:"ltr",
+    nav_about:"Hakkında",nav_events:"Etkinlikler",nav_gallery:"Galeri",nav_schedule:"Program",
+    hero_title:"BOYSUN BAHORI",hero_subtitle:"Özbekistan'ın Somut Olmayan Kültürel Mirası",hero_date:"1 Mayıs 2026",
+    countdown_title:"Festivale kalan süre:",days:"Gün",hours:"Saat",minutes:"Dakika",seconds:"Saniye",
+    started:"Festival başladı!",
+    about_title:"Boysun Bahori Hakkında",
+    about_text:"Boysun Bahori (Boysun'un Baharı), Özbekistan'ın Surhanderya bölgesindeki Boysun ilçesinde her yıl bahar mevsiminde düzenlenen uluslararası etno-kültürel bir festivaldır. UNESCO tarafından 'İnsanlığın Somut Olmayan Kültürel Mirası' olarak tanınan bu festival; kurash, ko'pkari gibi geleneksel sporları, halk müziği, dansı ve el sanatları sergilerini kapsamaktadır.",
+    events_title:"Etkinlikler",
+    kopkari_name:"Ko'pkari",kopkari_desc:"Geleneksel atlı oyun — biniciler dev bir alanda keçi gövdesi için yarışır. Bu kadim oyun cesaret ve ustalığın muhteşem bir gösterisidir.",
+    kurash_name:"Kurash",kurash_desc:"Özbekistan'ın milli güreş biçimi, en eski dövüş sanatlarından biridir.",
+    folklor_name:"Folklor Yarışmaları",folklor_desc:"Farklı bölgelerden folklor topluluklarının geleneksel şarkı, dans ve müzik yarışmaları. En iyi topluluklar ödüllendirilir.",
+    balloon_name:"Sıcak Hava Balonu Festivali",balloon_desc:"Renkli sıcak hava balonları gökyüzünde süzülür. Festivalin en canlı ve romantik anı.",
+    crafts_name:"El Sanatları",crafts_desc:"Nakış, seramik, mücevher ve diğer geleneksel el sanatları sergileri. Ustalar en güzel eserlerini sergiler.",
+    dron_name:"Drone, Lazer Gösterisi ve Havai Fişek",dron_desc:"Modern teknoloji ve milli sanatın buluşması — drone figürleri, lazer ışınları ve havai fişek gece gökyüzünü aydınlatır.",
+    gallery_title:"Fotoğraf Galerisi",schedule_title:"Festival Programı",schedule_may1:"1 Mayıs",
+    sch1_time:"06:00",sch1_event:"Büyük açılış töreni",
+    sch2_time:"08:00",sch2_event:"Ko'pkari yarışması",
+    sch3_time:"10:00",sch3_event:"Kurash yarışması",
+    sch4_time:"13:00",sch4_event:"Halk müziği ve dansı",
+    sch5_time:"15:00",sch5_event:"El sanatları sergisi",
+    sch6_time:"17:00",sch6_event:"Uluslararası kültürel program",
+    sch7_time:"19:00",sch7_event:"Kapanış töreni ve konseri",
+    footer_copy:"© 2026 Boysun Bahori. Tüm hakları saklıdır.",
+    footer_location:"Konum: Özbekistan, Surhanderya Bölgesi, Boysun İlçesi"
+  },
   ja: {
     lang_name:"日本語",dir:"ltr",
     nav_about:"概要",nav_events:"イベント",nav_gallery:"ギャラリー",nav_schedule:"スケジュール",
@@ -1218,6 +1266,7 @@ const SCHEDULE = [
     label: {
       uz:"Kirish bosqichi", 'uz-cy':"Кириш босқичи",
       ru:"Подготовительный этап", en:"Preparation Stage",
+      tr:"Hazırlık aşaması",
       es:"Etapa de preparación", fr:"Phase préparatoire",
       de:"Vorbereitungsphase", it:"Fase preparatoria",
       ko:"준비 단계", kk:"Дайындық кезеңі", ky:"Даярдык баскычы",
@@ -1230,7 +1279,33 @@ const SCHEDULE = [
       ru:[['—','Встреча делегаций в аэропорту Термеза и на вокзале Байсуна'],
           ['—','Научно-практическая конференция в Термезском государственном университете']],
       en:[['—','Receiving delegations at Termez airport and Boysun train station'],
-          ['—','Scientific-practical conference at Termez State University']]
+          ['—','Scientific-practical conference at Termez State University']],
+      tr:[['—','Termez havalimanı ve Boysun garında delegasyonların karşılanması'],
+          ['—','Termez Devlet Üniversitesi\'nde bilimsel-pratik konferans']],
+      es:[['—','Recibir delegaciones en el aeropuerto de Termez y la estación de Boysun'],
+          ['—','Conferencia científico-práctica en la Universidad Estatal de Termez']],
+      fr:[['—','Accueil des délégations à l\'aéroport de Termez et à la gare de Boysun'],
+          ['—','Conférence scientifique-pratique à l\'Université d\'État de Termez']],
+      de:[['—','Empfang der Delegationen am Flughafen Termez und am Bahnhof Boysun'],
+          ['—','Wissenschaftlich-praktische Konferenz an der Staatlichen Universität Termez']],
+      it:[['—','Accoglienza delle delegazioni all\'aeroporto di Termez e alla stazione di Boysun'],
+          ['—','Conferenza scientifico-pratica all\'Università Statale di Termez']],
+      ko:[['—','테르메즈 공항 및 보이순 기차역에서 대표단 영접'],
+          ['—','테르메즈 주립대학교 과학실무 컨퍼런스']],
+      kk:[['—','Термез әуежайы мен Бойсун вокзалынан делегацияларды қарсы алу'],
+          ['—','Термез мемлекеттік университетінде ғылыми-практикалық конференция']],
+      ky:[['—','Термез аэропорту менен Бойсун вокзалынан делегацияларды тосуп алуу'],
+          ['—','Термез мамлекеттик университетинде илимий-практикалык конференция']],
+      tk:[['—','Termez aeroporty we Boýsun wokzalynda delegasiýalary kabul etmek'],
+          ['—','Termez döwlet uniwersitetinde ylmy-amaly maslahat']],
+      tg:[['—','Истиқбол аз делегатҳо дар фурудгоҳи Термез ва истгоҳи Бойсун'],
+          ['—','Конфронси илмию амалӣ дар Донишгоҳи давлатии Термез']],
+      fa:[['—','استقبال از هیئت‌ها در فرودگاه ترمز و ایستگاه بویسون'],
+          ['—','کنفرانس علمی-عملی در دانشگاه دولتی ترمز']],
+      zh:[['—','在铁尔梅兹机场和博伊顺火车站迎接代表团'],
+          ['—','在铁尔梅兹国立大学举办科学实践会议']],
+      ja:[['—','テルメズ空港およびボイスン駅での代表団出迎え'],
+          ['—','テルメズ国立大学での科学実践会議']]
     }
   },
   {
@@ -1238,6 +1313,7 @@ const SCHEDULE = [
     label: {
       uz:"1-kun — Festivalning ochilishi", 'uz-cy':"1-кун — Фестивалнинг очилиши",
       ru:"День 1 — Открытие фестиваля", en:"Day 1 — Festival Opening",
+      tr:"1. Gün — Festival Açılışı",
       es:"Día 1 — Apertura del festival", fr:"Jour 1 — Ouverture du festival",
       de:"Tag 1 — Festivaleröffnung", it:"Giorno 1 — Apertura del festival",
       ko:"1일 — 페스티벌 개막", kk:"1-күн — Фестивалдың ашылуы",
@@ -1257,7 +1333,59 @@ const SCHEDULE = [
       en:[['09:00','Press conference'],['11:00','Grand opening ceremony'],
           ['13:00','Exhibition of national dishes, bread & spices'],
           ['15:00','Art exhibitions and tightrope walking shows'],
-          ['20:00','Drone & laser show and fireworks']]
+          ['20:00','Drone & laser show and fireworks']],
+      tr:[['09:00','Basın toplantısı'],['11:00','Büyük açılış töreni'],
+          ['13:00','Ulusal yemekler, ekmek ve baharat sergisi'],
+          ['15:00','Sanat sergileri ve ip cambazlığı gösterileri'],
+          ['20:00','Drone ve lazer gösterisi ve havai fişek']],
+      es:[['09:00','Conferencia de prensa'],['11:00','Gran ceremonia de apertura'],
+          ['13:00','Exposición de platos nacionales, pan y especias'],
+          ['15:00','Exposiciones de arte y espectáculos de funambulismo'],
+          ['20:00','Show de drones, láser y fuegos artificiales']],
+      fr:[['09:00','Conférence de presse'],['11:00','Grande cérémonie d\'ouverture'],
+          ['13:00','Exposition de plats nationaux, pain et épices'],
+          ['15:00','Expositions d\'art et spectacles de funambulisme'],
+          ['20:00','Show de drones, laser et feux d\'artifice']],
+      de:[['09:00','Pressekonferenz'],['11:00','Große Eröffnungszeremonie'],
+          ['13:00','Ausstellung nationaler Gerichte, Brot und Gewürze'],
+          ['15:00','Kunstausstellungen und Seiltanzvorführungen'],
+          ['20:00','Drohnen- und Lasershow und Feuerwerk']],
+      it:[['09:00','Conferenza stampa'],['11:00','Grande cerimonia di apertura'],
+          ['13:00','Mostra di piatti nazionali, pane e spezie'],
+          ['15:00','Mostre d\'arte e spettacoli di funambolismo'],
+          ['20:00','Show di droni, laser e fuochi d\'artificio']],
+      ko:[['09:00','기자회견'],['11:00','개막식'],
+          ['13:00','국가 요리, 빵 및 향신료 전시'],
+          ['15:00','예술 전시 및 줄타기 공연'],
+          ['20:00','드론 및 레이저 쇼와 불꽃놀이']],
+      kk:[['09:00','Баспасөз мәслихаты'],['11:00','Салтанатты ашылу рәсімі'],
+          ['13:00','Ұлттық тамақтар, нан және дәмдеуіштер көрмесі'],
+          ['15:00','Өнер көрмелері және арқанмен жүгіру шоулары'],
+          ['20:00','Дрон, лазер шоу және отшашу']],
+      ky:[['09:00','Пресс-конференция'],['11:00','Ачык салтанаттуу маросим'],
+          ['13:00','Улуттук тамак-аш, нан жана татымалдар көргөзмөсү'],
+          ['15:00','Искусство көргөзмөлөрү жана аркан бою жүрүү шоулары'],
+          ['20:00','Дрон жана лазер шоу жана оттуу оюн']],
+      tk:[['09:00','Metbugat maslahaty'],['11:00','Dabaraly açylyş dabarasy'],
+          ['13:00','Milli tagamlar, çörek we baharatlaryň sergisi'],
+          ['15:00','Sungat sergileri we arkan ýörelgeleri'],
+          ['20:00','Dron we lazer şüweleňi we oduň oýny']],
+      tg:[['09:00','Конфронси матбуот'],['11:00','Маросими кушоиши расмӣ'],
+          ['13:00','Намоиши хӯрокҳои миллӣ, нон ва зираворҳо'],
+          ['15:00','Намоишгоҳи санъат ва бозиҳои банди'],
+          ['20:00','Намоиши дрон, лазер ва оташбозӣ']],
+      fa:[['09:00','کنفرانس مطبوعاتی'],['11:00','مراسم افتتاحیه بزرگ'],
+          ['13:00','نمایشگاه غذاهای ملی، نان و ادویه'],
+          ['15:00','نمایشگاه هنری و نمایش بندبازی'],
+          ['20:00','نمایش پهپاد، لیزر و آتش‌بازی']],
+      zh:[['09:00','新闻发布会'],['11:00','盛大开幕式'],
+          ['13:00','国家菜肴、面包和香料展览'],
+          ['15:00','艺术展览和走钢丝表演'],
+          ['20:00','无人机、激光秀和烟火']],
+      ja:[['09:00','記者会見'],['11:00','盛大な開幕式'],
+          ['13:00','国家料理・パン・スパイス展示'],
+          ['15:00','美術展とロープウォーキングショー'],
+          ['20:00','ドローン・レーザーショーと花火']]
     }
   },
   {
@@ -1265,6 +1393,7 @@ const SCHEDULE = [
     label: {
       uz:"2–3-kun — Tanlovlar va ziyorat", 'uz-cy':"2–3-кун — Танловлар ва зиёрат",
       ru:"Дни 2–3 — Соревнования и экскурсии", en:"Days 2–3 — Competitions & Tours",
+      tr:"2–3. Gün — Yarışmalar ve Turlar",
       es:"Días 2–3 — Competiciones y excursiones", fr:"Jours 2–3 — Concours et visites",
       de:"Tage 2–3 — Wettbewerbe & Ausflüge", it:"Giorni 2–3 — Gare e visite",
       ko:"2–3일 — 경연 및 탐방", kk:"2–3-күн — Байқаулар және саяхат",
@@ -1287,7 +1416,72 @@ const SCHEDULE = [
           ['11:00','Info-tours to sacred sites: Omonxona, Khoja Sulton Vali, Zavboshi'],
           ['14:00','Kurash wrestling competitions'],
           ['16:00','Hot air balloon and kite festival'],
-          ['19:00','Award ceremony and gala concert']]
+          ['19:00','Award ceremony and gala concert']],
+      tr:[['09:00','Folklorik topluluk ana yarışmaları'],
+          ['11:00','Kutsal mekânlara bilgi turları: Omonxona, Hoja Sulton Vali, Zavboshi'],
+          ['14:00','Kurash güreş müsabakaları'],
+          ['16:00','Sıcak hava balonu ve uçurtma festivali'],
+          ['19:00','Ödül töreni ve gala konseri']],
+      es:[['09:00','Principales concursos de conjuntos folclóricos'],
+          ['11:00','Circuitos informativos a lugares sagrados: Omonxona, Khoja Sulton Vali, Zavboshi'],
+          ['14:00','Competiciones de Kurash'],
+          ['16:00','Festival de globos aerostáticos y cometas'],
+          ['19:00','Ceremonia de premios y gala concierto']],
+      fr:[['09:00','Concours principaux des ensembles folkloriques'],
+          ['11:00','Circuits d\'information vers les sites sacrés : Omonxona, Khoja Sulton, Zavboshi'],
+          ['14:00','Compétitions de Kurash'],
+          ['16:00','Festival de montgolfières et de cerfs-volants'],
+          ['19:00','Cérémonie de remise des prix et gala-concert']],
+      de:[['09:00','Hauptwettbewerbe der Folkloreensembles'],
+          ['11:00','Info-Touren zu heiligen Stätten: Omonxona, Khoja Sulton Vali, Zavboshi'],
+          ['14:00','Kurash-Ringkämpfe'],
+          ['16:00','Heißluftballon- und Drachenfest'],
+          ['19:00','Preisverleihung und Gala-Konzert']],
+      it:[['09:00','Principali gare di ensemble folkloristici'],
+          ['11:00','Tour informativi ai siti sacri: Omonxona, Khoja Sulton Vali, Zavboshi'],
+          ['14:00','Gare di Kurash'],
+          ['16:00','Festival di mongolfiere e aquiloni'],
+          ['19:00','Cerimonia di premiazione e gala concerto']],
+      ko:[['09:00','주요 민속 앙상블 경연'],
+          ['11:00','성지 인포 투어: 오몬호나, 호자 술톤 발리, 잠보시'],
+          ['14:00','쿠라시 레슬링 경기'],
+          ['16:00','열기구 및 연 축제'],
+          ['19:00','시상식 및 갈라 콘서트']],
+      kk:[['09:00','Фольклор ансамбльдерінің негізгі байқаулары'],
+          ['11:00','Киелі жерлерге инфо-турлар: Омонхона, Хожа Султон, Завбоши'],
+          ['14:00','Күрес жарыстары'],
+          ['16:00','Ауа шарлары мен змейлер фестивалі'],
+          ['19:00','Жеңімпаздарды марапаттау және гала-концерт']],
+      ky:[['09:00','Фольклор ансамбльдеринин негизги сынактары'],
+          ['11:00','Ыйык жерлерге инфо-турлар: Омонхона, Хожа Султон Вали, Завбоши'],
+          ['14:00','Кураш күрөш жарыштары'],
+          ['16:00','Аба шарлары жана учурткулар фестивалы'],
+          ['19:00','Сыйлоо маросими жана гала-концерт']],
+      tk:[['09:00','Folklor toparlarynyň esasy bäsleşikleri'],
+          ['11:00','Mukaddes ýerlere info-turlar: Omonhona, Hoja Sulton Wali, Zawboshi'],
+          ['14:00','Kurash göreş bäsleşikleri'],
+          ['16:00','Howa şarlary we uçurymlar festiwaly'],
+          ['19:00','Baýraklary gowşuryş dabarasy we gala-konsert']],
+      tg:[['09:00','Мусобиқаҳои асосии ансамблҳои фолклорӣ'],
+          ['11:00','Инфо-гашт ба ҷойҳои муқаддас: Омонхона, Ҳожа Султон Валӣ, Завбоши'],
+          ['14:00','Мусобиқаи кӯраш'],
+          ['16:00','Ҷашнвораи шарҳои ҳаво ва бодбодакҳо'],
+          ['19:00','Маросими мукофотдиҳӣ ва гала-консерт']],
+      fa:[['09:00','مسابقات اصلی گروه‌های فولکلور'],
+          ['11:00','تورهای اطلاعاتی به اماکن مقدس: امانخانه، خواجه سلطان ولی، زاوبوشی'],
+          ['14:00','مسابقات کشتی کوراش'],
+          ['16:00','جشنواره بالون‌های هوا و بادبادک'],
+          ['19:00','مراسم اهدای جوایز و گالا کنسرت']],
+      zh:[['09:00','民俗合奏主要比赛'],
+          ['11:00','圣地信息游览：奥曼霍纳、霍贾苏尔坦、扎夫博希'],
+          ['14:00','库拉什摔跤比赛'],
+          ['16:00','热气球与风筝节'],
+          ['19:00','颁奖典礼和盛大音乐会']],
+      ja:[['09:00','民族アンサンブルメインコンテスト'],
+          ['11:00','聖地インフォツアー：オモンホナ、ホジャ・スルタン、ザフボシ'],
+          ['14:00','クラッシュ・レスリング競技'],
+          ['16:00','熱気球・凧あげフェスティバル'],
+          ['19:00','授賞式・ガラコンサート']]
     }
   },
   {
@@ -1295,6 +1489,7 @@ const SCHEDULE = [
     label: {
       uz:"4–5-kun — Teatr va san'at", 'uz-cy':"4–5-кун — Театр ва санъат",
       ru:"Дни 4–5 — Театр и искусство", en:"Days 4–5 — Theater & Arts",
+      tr:"4–5. Gün — Tiyatro ve Sanat",
       es:"Días 4–5 — Teatro y arte", fr:"Jours 4–5 — Théâtre et art",
       de:"Tage 4–5 — Theater & Kunst", it:"Giorni 4–5 — Teatro e arte",
       ko:"4–5일 — 연극 및 예술", kk:"4–5-күн — Театр және өнер",
@@ -1314,7 +1509,59 @@ const SCHEDULE = [
       en:[['10:00','National costume exhibition'],
           ['12:00','Theater performances'],
           ['15:00','Maqom art and philharmonic concert'],
-          ['19:00','Concert featuring pop stars']]
+          ['19:00','Concert featuring pop stars']],
+      tr:[['10:00','Ulusal kostüm sergisi'],
+          ['12:00','Tiyatro gösterileri'],
+          ['15:00','Makam sanatı ve filarmoni konseri'],
+          ['19:00','Pop yıldızlarının konseri']],
+      es:[['10:00','Exposición de trajes nacionales'],
+          ['12:00','Representaciones teatrales'],
+          ['15:00','Arte maqam y concierto filarmónico'],
+          ['19:00','Concierto con estrellas del pop']],
+      fr:[['10:00','Exposition de costumes nationaux'],
+          ['12:00','Représentations théâtrales'],
+          ['15:00','Art maqam et concert philharmonique'],
+          ['19:00','Concert avec des stars de la pop']],
+      de:[['10:00','Ausstellung nationaler Kostüme'],
+          ['12:00','Theateraufführungen'],
+          ['15:00','Maqom-Kunst und Philharmoniekonzert'],
+          ['19:00','Konzert mit Popstars']],
+      it:[['10:00','Mostra di costumi nazionali'],
+          ['12:00','Rappresentazioni teatrali'],
+          ['15:00','Arte del maqam e concerto filarmonico'],
+          ['19:00','Concerto con star della musica pop']],
+      ko:[['10:00','국가 의상 전시'],
+          ['12:00','연극 공연'],
+          ['15:00','마콤 예술 및 필하모닉 콘서트'],
+          ['19:00','팝 스타 콘서트']],
+      kk:[['10:00','Ұлттық киімдер көрмесі'],
+          ['12:00','Театр қойылымдары'],
+          ['15:00','Мақом өнері және филармония концерті'],
+          ['19:00','Эстрада жұлдыздары қатысқан концерт']],
+      ky:[['10:00','Улуттук костюмдар көргөзмөсү'],
+          ['12:00','Театр спектаклдери'],
+          ['15:00','Мақом өнөрү жана филармония концерти'],
+          ['19:00','Эстрада жылдызтары катышкан концерт']],
+      tk:[['10:00','Milli egin-eşik sergisi'],
+          ['12:00','Teatr sahna çykyşlary'],
+          ['15:00','Makam sungaty we filarmoniýa konserti'],
+          ['19:00','Estrada ýyldyzlarynyň konserti']],
+      tg:[['10:00','Намоишгоҳи либосҳои миллӣ'],
+          ['12:00','Намоиши театрӣ'],
+          ['15:00','Санъати мақом ва консерти филармония'],
+          ['19:00','Консерт бо иштироки ситораҳои эстрада']],
+      fa:[['10:00','نمایشگاه لباس‌های ملی'],
+          ['12:00','نمایش‌های تئاتری'],
+          ['15:00','هنر مقام و کنسرت فیلارمونیک'],
+          ['19:00','کنسرت با حضور ستاره‌های پاپ']],
+      zh:[['10:00','国家服装展览'],
+          ['12:00','戏剧表演'],
+          ['15:00','马卡姆艺术和爱乐音乐会'],
+          ['19:00','流行明星音乐会']],
+      ja:[['10:00','民族衣装展示'],
+          ['12:00','演劇パフォーマンス'],
+          ['15:00','マカム芸術とフィルハーモニーコンサート'],
+          ['19:00','ポップスターコンサート']]
     }
   },
   {
@@ -1322,6 +1569,7 @@ const SCHEDULE = [
     label: {
       uz:"6–7-kun — Milliy sport va marafon", 'uz-cy':"6–7-кун — Миллий спорт ва марафон",
       ru:"Дни 6–7 — Национальный спорт и марафон", en:"Days 6–7 — National Sports & Marathon",
+      tr:"6–7. Gün — Ulusal Spor ve Maraton",
       es:"Días 6–7 — Deporte nacional y maratón", fr:"Jours 6–7 — Sports nationaux et marathon",
       de:"Tage 6–7 — Nationalsport & Marathon", it:"Giorni 6–7 — Sport nazionale e maratona",
       ko:"6–7일 — 국가 스포츠 및 마라톤", kk:"6–7-күн — Ұлттық спорт және марафон",
@@ -1338,7 +1586,46 @@ const SCHEDULE = [
           ['13:00','Соревнования по альпинизму в Тангисаре']],
       en:[['08:00',"Uloq-Ko'pkari competition in Inkabod district"],
           ['10:00','Marathon on roads of Khojamaykhona shrine'],
-          ['13:00','Alpinism competition in Tangissar']]
+          ['13:00','Alpinism competition in Tangissar']],
+      tr:[['08:00','İnkabod bölgesinde Uloq-Ko\'pkari yarışması'],
+          ['10:00','Hojamaykhona türbesinde maraton'],
+          ['13:00','Tangissar\'da dağcılık yarışması']],
+      es:[['08:00','Competición Uloq-Ko\'pkari en el distrito de Inkabod'],
+          ['10:00','Maratón en los caminos del santuario Khojamaykhona'],
+          ['13:00','Competición de alpinismo en Tangissar']],
+      fr:[['08:00','Compétition Uloq-Ko\'pkari dans le district d\'Inkabod'],
+          ['10:00','Marathon sur les routes du sanctuaire de Khojamaykhona'],
+          ['13:00','Compétition d\'alpinisme à Tangissar']],
+      de:[['08:00','Uloq-Ko\'pkari-Wettbewerb im Bezirk Inkabod'],
+          ['10:00','Marathon auf den Wegen des Heiligtums Khojamaykhona'],
+          ['13:00','Alpinismus-Wettbewerb in Tangissar']],
+      it:[['08:00','Gara Uloq-Ko\'pkari nel distretto di Inkabod'],
+          ['10:00','Maratona sulle strade del santuario di Khojamaykhona'],
+          ['13:00','Gara di alpinismo a Tangissar']],
+      ko:[['08:00','잉카보드 지역 울로크-코프카리 경기'],
+          ['10:00','호자마이호나 성지 마라톤'],
+          ['13:00','탕기싸르 등반 경기']],
+      kk:[['08:00','«Инкабод» ауданында улоқ-қопқари жарысы'],
+          ['10:00','«Хожамайхона» зиярат маршруттарындағы марафон'],
+          ['13:00','Тангиссарда альпинизм жарысы']],
+      ky:[['08:00','«Инкабод» ЧАА жеринде улоқ-купкери жарышы'],
+          ['10:00','«Хожамайхона» зиярат жолдоруна марафон'],
+          ['13:00','Тангиссарда альпинизм жарышы']],
+      tk:[['08:00','«Inkabod» etrabynyň Uloq-Köpkäri bäsleşigi'],
+          ['10:00','«Hojamaykhona» zyýaratgäh ýollarynda maraton'],
+          ['13:00','Tangissarda alpinizm bäsleşigi']],
+      tg:[['08:00','Мусобиқаи улоқ-кӯпкарӣ дар ноҳияи Инкабод'],
+          ['10:00','Марафон дар роҳҳои зиёратгоҳи Хожамайхона'],
+          ['13:00','Мусобиқаи альпинизм дар Тангиссар']],
+      fa:[['08:00','مسابقه اولاق-کوپکاری در ناحیه انکابود'],
+          ['10:00','ماراتون در مسیرهای زیارتگاه خاجامایخانه'],
+          ['13:00','مسابقه کوهنوردی در تنگیسار']],
+      zh:[['08:00','因卡博德区乌洛克-科普卡里比赛'],
+          ['10:00','霍贾迈霍纳圣地道路马拉松'],
+          ['13:00','坦格萨尔登山比赛']],
+      ja:[['08:00','インカボド地区でのウロク・コプカリ競技'],
+          ['10:00','ホジャマイホナ聖地でのマラソン'],
+          ['13:00','タンギッサルでの登山競技']]
     }
   },
   {
@@ -1346,6 +1633,7 @@ const SCHEDULE = [
     label: {
       uz:"8–9-kun — Madaniy tadbirlar", 'uz-cy':"8–9-кун — Маданий тадбирлар",
       ru:"Дни 8–9 — Культурные мероприятия", en:"Days 8–9 — Cultural Events",
+      tr:"8–9. Gün — Kültürel Etkinlikler",
       es:"Días 8–9 — Eventos culturales", fr:"Jours 8–9 — Événements culturels",
       de:"Tage 8–9 — Kulturveranstaltungen", it:"Giorni 8–9 — Eventi culturali",
       ko:"8–9일 — 문화 행사", kk:"8–9-күн — Мәдени іс-шаралар",
@@ -1359,7 +1647,33 @@ const SCHEDULE = [
       ru:[['10:00','Музыкальные программы фольклорных ансамблей районов и городов'],
           ['19:00','Вечерние концерты с участием известных эстрадных певцов']],
       en:[['10:00','Musical programs by folklore ensembles from districts and cities'],
-          ['19:00','Evening concerts featuring renowned pop singers']]
+          ['19:00','Evening concerts featuring renowned pop singers']],
+      tr:[['10:00','İlçe ve şehirlerden halk müziği topluluklarının müzik programları'],
+          ['19:00','Tanınmış pop sanatçılarının katıldığı akşam konserleri']],
+      es:[['10:00','Programas musicales de conjuntos folclóricos de distritos y ciudades'],
+          ['19:00','Conciertos nocturnos con cantantes pop famosos']],
+      fr:[['10:00','Programmes musicaux des ensembles folkloriques des districts et des villes'],
+          ['19:00','Concerts du soir avec des chanteurs pop renommés']],
+      de:[['10:00','Musikprogramme der Folkloreensembles aus Bezirken und Städten'],
+          ['19:00','Abendkonzerte mit berühmten Popsängern']],
+      it:[['10:00','Programmi musicali degli ensemble folkloristici di distretti e città'],
+          ['19:00','Concerti serali con famosi cantanti pop']],
+      ko:[['10:00','구와 도시 민속 앙상블의 음악 프로그램'],
+          ['19:00','유명 팝 가수가 참여하는 저녁 콘서트']],
+      kk:[['10:00','Аудандар мен қалалардың фольклор ансамбльдерінің музыкалық бағдарламалары'],
+          ['19:00','Белгілі эстрада әншілерінің кешкі концерттері']],
+      ky:[['10:00','Райондор жана шаарлардын фольклор ансамбльдеринин музыкалык программалары'],
+          ['19:00','Атактуу эстрада ырчыларынын кечки концерттери']],
+      tk:[['10:00','Etraplaryň we şäherleriň folklor toparlarynyň saz çykyşlary'],
+          ['19:00','Meşhur estrada aýdymçylaryň agşam konserti']],
+      tg:[['10:00','Барномаҳои мусиқии ансамблҳои фолклории ноҳияҳо ва шаҳрҳо'],
+          ['19:00','Консертҳои шабонаи суруди эстрадаи машҳур']],
+      fa:[['10:00','برنامه‌های موسیقی گروه‌های فولکلور از نواحی و شهرها'],
+          ['19:00','کنسرت‌های شبانه با حضور خوانندگان پاپ مشهور']],
+      zh:[['10:00','来自各区和城市民俗合奏的音乐节目'],
+          ['19:00','著名流行歌手参与的晚间音乐会']],
+      ja:[['10:00','地区・都市のフォークロアアンサンブルによる音楽プログラム'],
+          ['19:00','著名ポップ歌手による夜のコンサート']]
     }
   },
   {
@@ -1367,6 +1681,7 @@ const SCHEDULE = [
     label: {
       uz:"10-kun — Festivalning yopilishi", 'uz-cy':"10-кун — Фестивалнинг ёпилиши",
       ru:"День 10 — Закрытие фестиваля", en:"Day 10 — Festival Closing",
+      tr:"10. Gün — Festival Kapanışı",
       es:"Día 10 — Clausura del festival", fr:"Jour 10 — Clôture du festival",
       de:"Tag 10 — Festivalabschluss", it:"Giorno 10 — Chiusura del festival",
       ko:"10일 — 페스티벌 폐막", kk:"10-күн — Фестивалдың жабылуы",
@@ -1380,7 +1695,33 @@ const SCHEDULE = [
       ru:[['11:00','Торжественная церемония закрытия и финальный гала-концерт'],
           ['15:00','Проводы участников и гостей из Термеза и Байсуна']],
       en:[['11:00','Grand closing ceremony and final gala concert'],
-          ['15:00','Seeing off participants and guests from Termez and Boysun']]
+          ['15:00','Seeing off participants and guests from Termez and Boysun']],
+      tr:[['11:00','Büyük kapanış töreni ve final gala konseri'],
+          ['15:00','Termez ve Boysun\'dan katılımcı ve misafirlerin uğurlanması']],
+      es:[['11:00','Gran ceremonia de clausura y gala final'],
+          ['15:00','Despedida de participantes y huéspedes desde Termez y Boysun']],
+      fr:[['11:00','Grande cérémonie de clôture et gala final'],
+          ['15:00','Départ des participants et des invités depuis Termez et Boysun']],
+      de:[['11:00','Große Abschlusszeremonie und finales Gala-Konzert'],
+          ['15:00','Verabschiedung der Teilnehmer und Gäste aus Termez und Boysun']],
+      it:[['11:00','Grande cerimonia di chiusura e gala finale'],
+          ['15:00','Commiato di partecipanti e ospiti da Termez e Boysun']],
+      ko:[['11:00','폐막식 및 피날레 갈라 콘서트'],
+          ['15:00','테르메즈 및 보이순에서 참가자와 방문객 배웅']],
+      kk:[['11:00','Салтанатты жабылу рәсімі және соңғы гала-концерт'],
+          ['15:00','Термез пен Бойсуннан қатысушылар мен қонақтарды аттандыру']],
+      ky:[['11:00','Салтанатуу жабылыш маросими жана акыркы гала-концерт'],
+          ['15:00','Термез жана Бойсуннан катышуучуларды жана коноктарды узатуу']],
+      tk:[['11:00','Dabaraly ýapylyş dabarasy we soňky gala-konsert'],
+          ['15:00','Termez we Boýsundan gatnaşyjylary we myhmanlary ugratmak']],
+      tg:[['11:00','Маросими расмии ихтитом ва гала-консерти ниҳоӣ'],
+          ['15:00','Видоъ аз иштирокчиён ва меҳмонон аз Термез ва Бойсун']],
+      fa:[['11:00','مراسم اختتامیه بزرگ و گالا کنسرت نهایی'],
+          ['15:00','بدرقه شرکت‌کنندگان و مهمانان از ترمز و بویسون']],
+      zh:[['11:00','盛大闭幕式和最终盛大音乐会'],
+          ['15:00','在铁尔梅兹和博伊顺送别参与者和嘉宾']],
+      ja:[['11:00','盛大な閉幕式と最終ガラコンサート'],
+          ['15:00','テルメズとボイスンから参加者とゲストの見送り']]
     }
   }
 ];
@@ -1388,12 +1729,25 @@ const SCHEDULE = [
 const SCHEDULE_NOTE = {
   uz:"Doimiy faoliyatlar: milliy hunarmandchilik ko'rgazmalari, dorbozlik tomoshalari va turistik info-turlar festival davomida har kuni o'tkaziladi.",
   ru:"Постоянные мероприятия: выставки народных ремёсел, выступления канатоходцев и туристические инфо-туры проводятся ежедневно в течение всего фестиваля.",
-  en:"Daily activities: national handicraft exhibitions, tightrope walking shows and tourist info-tours take place throughout the festival."
+  en:"Daily activities: national handicraft exhibitions, tightrope walking shows and tourist info-tours take place throughout the festival.",
+  tr:"Günlük etkinlikler: ulusal el sanatları sergileri, ip cambazlığı gösterileri ve turistik bilgi turları festival boyunca her gün düzenlenmektedir.",
+  es:"Actividades diarias: exposiciones de artesanía nacional, espectáculos de funambulismo y circuitos turísticos informativos se realizan todos los días durante el festival.",
+  fr:"Activités quotidiennes : expositions d'artisanat national, spectacles de funambulisme et circuits touristiques informatifs ont lieu chaque jour pendant le festival.",
+  de:"Tägliche Aktivitäten: Ausstellungen für nationales Kunsthandwerk, Seiltanzvorführungen und touristische Info-Touren finden täglich während des gesamten Festivals statt.",
+  it:"Attività quotidiane: esposizioni di artigianato nazionale, spettacoli di funambolismo e tour informativi turistici si svolgono ogni giorno durante il festival.",
+  ko:"일일 활동: 전통 공예 전시, 줄타기 공연, 관광 인포 투어는 축제 기간 내내 매일 진행됩니다.",
+  kk:"Күнделікті іс-шаралар: ұлттық қолөнер көрмелері, арқанмен жүгіру шоулары және туристік инфо-турлар фестиваль бойы күн сайын өтеді.",
+  ky:"Күнүмдүк иш-чаралар: улуттук кол өнөрчүлүк көргөзмөлөрү, аркан боюнда жүрүү шоулары жана туристтик инфо-турлар фестиваль бою ар күн болуп турат.",
+  tk:"Gündelik çäreler: milli el işleri sergileri, arkan ýörelge şüweleňleri we syýahatçy info-turlar festiwal boýunça her gün geçirilýär.",
+  tg:"Чорабиниҳои ҳаррӯза: намоишгоҳи ҳунармандии миллӣ, бозиҳои банди ва инфо-гаштҳои туристӣ дар тӯли тамоми ҷашнвора ҳаррӯз баргузор мешаванд.",
+  fa:"فعالیت‌های روزانه: نمایشگاه صنایع دستی ملی، نمایش بندبازی و تورهای اطلاعاتی گردشگری در طول جشنواره هر روز برگزار می‌شود.",
+  zh:"每日活动：全国工艺品展览、走钢丝表演和旅游信息游览在整个节日期间每天举行。",
+  ja:"毎日の活動：民族工芸品展示、ロープウォーキングショー、観光インフォツアーはフェスティバル期間中毎日開催されます。"
 };
 
 function buildSchedule() {
   const lang = currentLang;
-  const itemLang = (lang === 'uz' || lang === 'uz-cy') ? 'uz' : (lang === 'ru' ? 'ru' : 'en');
+  const itemLang = lang === 'uz-cy' ? 'uz' : lang;
   const container = document.getElementById('scheduleDays');
   container.innerHTML = '';
   SCHEDULE.forEach((day, di) => {
@@ -1486,13 +1840,15 @@ document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') document.getElementById('lbNext').click();
 });
 
-// ── HERO SLIDESHOW ──
+// ── HERO SLIDESHOW — random ──
 (function() {
   const slides = document.querySelectorAll('.slide');
   let idx = 0;
   setInterval(() => {
     slides[idx].classList.remove('active');
-    idx = (idx + 1) % slides.length;
+    let next;
+    do { next = Math.floor(Math.random() * slides.length); } while (slides.length > 1 && next === idx);
+    idx = next;
     slides[idx].classList.add('active');
   }, 4500);
 })();
